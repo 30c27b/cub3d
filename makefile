@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2020/03/09 14:12:28 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/03/09 14:39:44 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ MLXDIR		= ./libraries/mlx
 
 CFLAGS		= -Wall -Wextra -Werror -I. -I./includes
 
-LIBS		= -L$(LFTDIR) -lft -L$(MLXDIR) -lmlx -framework OpenGL -framework AppKit -lm
+LIBS		= -L$(LFTDIR) -lft -L$(MLXDIR) -lmlx -framework OpenGL             \
+			  -framework AppKit -lm
 
 SRCDIR		= ./sources
 
@@ -69,7 +70,6 @@ fclean:		clean
 			@echo "$(CL_BLUE)-> FCLEAN$(CL_RESET)"
 			@echo "$(CL_GREY)"
 			@$(MAKE) -C $(LFTDIR) fclean
-			@$(MAKE) -C $(MLXDIR) clean
 			$(RM) $(NAME)
 			@echo "$(CL_RESET)"
 
