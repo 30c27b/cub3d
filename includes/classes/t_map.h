@@ -6,11 +6,14 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 11:22:38 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/09 13:34:34 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef T_MAP_H
+# define T_MAP_H
+
+# include "cub3d.h"
 
 typedef struct	s_map
 {
@@ -25,3 +28,5 @@ typedef struct	s_map
 	t_rgb		cl_c;
 	t_list		*data;
 }				t_map;
+
+#endif

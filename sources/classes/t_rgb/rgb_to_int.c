@@ -6,11 +6,11 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:12:37 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 12:56:17 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/09 13:33:49 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "classes/t_rgb.h"
+#include "cub3d.h"
 
 t_int32		rgb_to_int(t_rgb color)
 {

@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2020/03/09 10:23:08 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/03/09 13:11:30 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ LIBS		= -L$(LFTDIR) -lft -L$(MLXDIR) -lmlx -framework OpenGL -framework AppKit -
 
 SRCDIR		= ./sources
 
-SRCS		= main.c
+SRCS		= main.c classes/t_rgb/rgb_init.c classes/t_rgb/rgb_to_int.c       \
+    	      classes/t_win/win_init.c classes/t_inst/inst_init.c              \
+			  classes/t_inst/inst_close_win.c
 
 OBJS		= $(addprefix $(SRCDIR)/, $(SRCS:.c=.o))
 
