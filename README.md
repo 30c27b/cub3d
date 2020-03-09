@@ -28,12 +28,12 @@ Arguments:
 ## Progression 
 
 - [x] Error handling
-- [] Classes
-- [] Input handling
-- [] Map parsing
-- [] Raycasting
-- [] Textures
-- [] Sprites
+- [ ] Classes
+- [ ] Input handling
+- [ ] Map parsing
+- [ ] Raycasting
+- [ ] Textures
+- [ ] Sprites
 
 ## Credit
 
