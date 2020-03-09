@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:03:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 17:00:06 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/09 19:46:19 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ int			main(void)
 	t_inst	instance;
 
 	instance = inst_init(map_init(500, 500));
-	err_exit(ERRTYPE_BADARG);
 	mlx_loop(instance.ptr);
 }
