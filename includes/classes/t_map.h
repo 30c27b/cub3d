@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   t_map.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/07 14:51:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 11:13:48 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/03/09 11:22:38 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-void	*ft_calloc(size_t count, size_t size)
+typedef struct	s_map
 {
-	unsigned char	*ptr;
-
-	if (!(ptr = malloc(count * size)))
-		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
-}
+	t_uint64	res_x;
+	t_uint64	res_y;
+	void		*tx_no;
+	void		*tx_so;
+	void		*tx_we;
+	void		*tx_ea;
+	void		*tx_s;
+	t_rgb		cl_f;
+	t_rgb		cl_c;
+	t_list		*data;
+}				t_map;

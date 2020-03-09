@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 10:35:53 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/02/05 15:57:14 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/09 10:44:13 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,35 @@
 # include <unistd.h>
 # include <limits.h>
 
+# define BIT_0 0x01
+# define BIT_1 0x02
+# define BIT_2 0x04
+# define BIT_3 0x08
+# define BIT_4 0x10
+# define BIT_5 0x20
+# define BIT_6 0x40
+# define BIT_7 0x80
+
+typedef signed char		t_int8;
+typedef unsigned char	t_uint8;
+typedef signed short	t_int16;
+typedef unsigned short	t_uint16;
+typedef signed int		t_int32;
+typedef unsigned int	t_uint32;
+typedef signed long		t_int64;
+typedef unsigned long	t_uint64;
+
 # define BUFFER_SIZE 32
 
 # define RET_RED 1
 # define RET_EOF 0
 # define RET_ERR -1
 
-# define TRUE 1
-# define FALSE 0
-
-typedef unsigned char	t_uchar;
-typedef unsigned int	t_uint;
+typedef enum	e_bool
+{
+	FALSE = 0,
+	TRUE = !FALSE
+}				t_bool;
 
 typedef struct	s_list
 {

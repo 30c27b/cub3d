@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   t_inst.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/07 14:51:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 11:13:48 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/03/09 11:07:54 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/03/09 11:12:35 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-void	*ft_calloc(size_t count, size_t size)
+typedef struct	s_inst
 {
-	unsigned char	*ptr;
-
-	if (!(ptr = malloc(count * size)))
-		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
-}
+	void		*mlx_ptr;
+	t_win		win;
+	t_map		map;
+}				t_inst;

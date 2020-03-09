@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:46:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 09:46:33 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/09 11:12:21 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,10 @@
 
 # include "libraries/libft/libft.h"
 # include "libraries/mlx/mlx.h"
+
+# include "classes/t_rgb.h"
+# include "classes/t_map.h"
+# include "classes/t_win.h"
+# include "classes/t_inst.h"
 
 #endif
