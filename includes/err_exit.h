@@ -6,21 +6,14 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:03:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 15:35:26 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/09 16:36:48 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-** ************************************************************************** **
-** Cub3D                                                                      **
-** Copyright (c) 2020 Antoine Coulon                                          **
-** ************************************************************************** **
-*/
 
 #ifndef ERR_EXIT_H
 # define ERR_EXIT_H
 
-# define ERR_PREFIX "\033[38;5;196mError: \033[38;5;247m"
+# define ERR_PREFIX "\033[38;5;196mError\n\033[38;5;247m"
 # define ERR_SUFFIX "\033[0m\n"
 
 # define ERRTYPE_MLX "The graphical library could not work properly."
