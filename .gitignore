@@ -1,0 +1,12 @@
+.DS_store
+*~
+*.swp
+*.swo
+Cub3D
+sources/*.o
+sources/*/*.o
+sources/*/*/*.o
+libraries/libft/*.o
+libraries/libft/*.a
+libraries/mlx/*.o
+libraries/mlx/*.a
