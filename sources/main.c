@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:03:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 13:40:08 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/09 14:26:57 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int			main(void)
 {
-	t_map	map;
 	t_inst	instance;
 
-	map.res_x = 300;
-	map.res_y = 300;
-	instance = inst_init(map);
+	instance = inst_init(map_init(500, 500));
+	mlx_loop(instance.mlx_ptr);
+	printf("hey\n");
 }

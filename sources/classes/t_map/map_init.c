@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_map.h                                            :+:      :+:    :+:   */
+/*   map_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 14:27:00 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/03/09 14:09:01 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/03/09 14:11:11 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_MAP_H
-# define T_MAP_H
+#include "cub3d.h"
 
-# include "cub3d.h"
-
-typedef struct	s_map
+t_map		map_init(t_uint64 x, t_uint64 y)
 {
-	t_uint64	res_x;
-	t_uint64	res_y;
-	void		*tx_no;
-	void		*tx_so;
-	void		*tx_we;
-	void		*tx_ea;
-	void		*tx_s;
-	t_rgb		cl_f;
-	t_rgb		cl_c;
-	t_list		*data;
-}				t_map;
+	t_map	map;
 
-t_map			map_init(t_uint64 x, t_uint64 y);
-
-#endif
+	map.res_x = x;
+	map.res_y = y;
+	return (map);
+}
