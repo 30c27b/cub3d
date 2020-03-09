@@ -6,21 +6,36 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:54 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 13:34:37 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/09 15:25:51 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ************************************************************************** **
+** Cub3D                                                                      **
+** Copyright (c) 2020 Antoine Coulon                                          **
+** ************************************************************************** **
+*/
 
 #ifndef T_INST_H
 # define T_INST_H
 
 # include "cub3d.h"
 
+/*
+** Structure **************************************************************** **
+*/
+
 typedef struct	s_inst
 {
-	void		*mlx_ptr;
+	void		*ptr;
 	t_win		win;
 	t_map		map;
 }				t_inst;
+
+/*
+** Methods ****************************************************************** **
+*/
 
 t_inst			inst_init(t_map	map);
 void			inst_close_win(t_inst instance);

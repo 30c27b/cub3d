@@ -6,9 +6,16 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:44:49 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 13:34:59 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/09 15:35:59 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ************************************************************************** **
+** Cub3D                                                                      **
+** Copyright (c) 2020 Antoine Coulon                                          **
+** ************************************************************************** **
+*/
 
 #include "cub3d.h"
 
@@ -19,6 +26,6 @@ t_win		win_init(void *mlx_ptr, t_uint64 x, t_uint64 y)
 	win.x = x;
 	win.y = y;
 	if (!(win.ptr = mlx_new_window(mlx_ptr, x, y, C3D_TITLE)))
-		exit(EXIT_FAILURE);
+		err_exit(ERRTYPE_MLX);
 	return (win);
 }

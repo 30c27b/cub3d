@@ -6,14 +6,21 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:54:30 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 13:34:14 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/09 15:23:47 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** ************************************************************************** **
+** Cub3D                                                                      **
+** Copyright (c) 2020 Antoine Coulon                                          **
+** ************************************************************************** **
+*/
 
 #include "cub3d.h"
 
 void		inst_close_win(t_inst instance)
 {
 	if (instance.win.ptr)
-		mlx_destroy_window(instance.mlx_ptr, instance.win.ptr);
+		mlx_destroy_window(instance.ptr, instance.win.ptr);
 }

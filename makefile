@@ -6,9 +6,14 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2020/03/09 14:39:44 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/03/09 15:25:01 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+## ************************************************************************** ##
+## Cub3D                                                                      ##
+## Copyright (c) 2020 Antoine Coulon                                          ##
+## ************************************************************************** ##
 
 NAME		= Cub3D
 
@@ -29,7 +34,8 @@ SRCDIR		= ./sources
 
 SRCS		= main.c classes/t_rgb/rgb_init.c classes/t_rgb/rgb_to_int.c       \
     	      classes/t_win/win_init.c classes/t_inst/inst_init.c              \
-			  classes/t_inst/inst_close_win.c classes/t_map/map_init.c
+			  classes/t_inst/inst_close_win.c classes/t_map/map_init.c         \
+			  err_exit.c
 
 OBJS		= $(addprefix $(SRCDIR)/, $(SRCS:.c=.o))
 
