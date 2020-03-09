@@ -6,11 +6,11 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:37:18 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 12:50:11 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/09 12:55:53 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "classes/t_inst.h"
 
 t_inst		inst_init(t_map	map)
 {

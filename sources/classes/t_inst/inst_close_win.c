@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_rgb.h                                            :+:      :+:    :+:   */
+/*   inst_close_win.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 11:07:51 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 12:56:26 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/03/09 12:54:30 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/03/09 12:58:01 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "classes/t_inst.h"
 
-typedef struct	s_rgb
+void		inst_close_win(t_inst instance)
 {
-	t_uint8		r;
-	t_uint8		g;
-	t_uint8		b;
-}				t_rgb;
-
-t_rgb			rgb_init(t_uint8 r, t_uint8 g, t_uint8 b);
-t_int32			rgb_to_int(t_rgb color);
+	if (instance.win.ptr)
+		mlx_destroy_window(instance.mlx_ptr, instance.win.ptr);
+}

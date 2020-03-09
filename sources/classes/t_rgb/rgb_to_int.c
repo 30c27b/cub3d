@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rgb_toint.c                                        :+:      :+:    :+:   */
+/*   rgb_to_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:12:37 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 12:15:42 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/09 12:56:17 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "classes/t_rgb.h"
 
-t_int32		rgb_toint(t_rgb color)
+t_int32		rgb_to_int(t_rgb color)
 {
 	return (color.b + (color.g * 255) + (color.r * 65025));
 }
