@@ -27,7 +27,7 @@ Arguments:
 
 ## Progression 
 
-- [] Error handling
+- [x] Error handling
 - [] Classes
 - [] Input handling
 - [] Map parsing
