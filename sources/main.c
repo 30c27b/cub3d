@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:03:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/10 12:09:02 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/10 14:27:45 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ int			main(void)
 {
 	t_inst	instance;
 
-	instance = inst_init(map_init(2560, 1400));
+	int w = 1920;
+	int h = 1080;
+	instance = inst_init(map_init(1920, 1080));
+	void *img = mlx_xpm_file_to_image(instance.ptr, "./assets/textures/bbt.xpm", &w, &h);
+	mlx_put_image_to_window(instance.ptr, instance.win.ptr, img, 0, 0);
 	mlx_loop(instance.ptr);
 }

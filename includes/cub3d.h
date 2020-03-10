@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:46:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/10 11:10:32 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/10 15:32:00 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,8 @@
 */
 
 # define C3D_TITLE "Cub3D"
+
+# define WIN_MAX_W 2560
+# define WIN_MAX_H 1440
 
 #endif
