@@ -1,0 +1,14 @@
+R 800 800
+NO 
+SO ./assets/textures/bluestone.xpm
+WE ./assets/textures/colorstone.xpm
+EA ./assets/textures/redbrick.xpm
+S ./assets/textures/wood.xpm
+F 220,100,0
+C 225,30,0
+
+111111
+100101
+102001
+1100N1
+111111

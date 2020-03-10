@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 16:36:34 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/10 10:54:19 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_map
 	t_rgb		cl_f;
 	t_rgb		cl_c;
 	t_list		*data;
+	t_bool		save;
 }				t_map;
 
 /*

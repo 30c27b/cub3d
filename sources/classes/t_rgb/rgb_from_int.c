@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rgb_to_int.c                                       :+:      :+:    :+:   */
+/*   rgb_from_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 12:12:37 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/10 10:18:06 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/03/10 09:38:28 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/03/10 10:05:15 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+# include "cub3d.h"
 
-t_int32		rgb_to_int(t_rgb color)
+t_rgb		rbg_from_int(t_int32 ref)
 {
-	return ((color.r * 65025) + (color.g * 255) + color.b);
+	return (rgb_init((ref & RGB_R) >> 16, (ref & RBG_G) >> 8,
+	(ref & RBG_B)));
 }
+

@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rgb_to_int.c                                       :+:      :+:    :+:   */
+/*   mp_read_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 12:12:37 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/10 10:18:06 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/03/10 11:13:42 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/03/10 11:59:44 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_int32		rgb_to_int(t_rgb color)
+void		mp_read_file(t_map_file *file)
 {
-	return ((color.r * 65025) + (color.g * 255) + color.b);
+	t_uint64	i;
+	char		*line;
+	t_list		*el;
+	
+	if (!(file->fd = open(file->path, O_RDONLY)))
+		err_exit(ERRTYPE_NOMAP);
+	while (ft_gnl(file->fd, &line))
+	{
+		if (!(el = ft_lstnew((void *)line)))
+		{
+			ft_lstclear(file->file, &free);
+			err_exit(ERRTYPE_NOMEM);
+		}
+		ft_lstadd_back(file->file, el);
+	}
 }
