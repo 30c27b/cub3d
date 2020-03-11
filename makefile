@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2020/03/10 09:51:30 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/03/11 10:06:30 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ CC			= gcc
 
 RM			= rm -f
 
+MAKE		= make -j$(nproc)
+
 LFTDIR		= ./libraries/libft
 
 MLXDIR		= ./libraries/mlx
@@ -37,12 +39,11 @@ LIBS		= -L$(LFTDIR) -lft -L$(MLXDIR) -lmlx -framework OpenGL             \
 
 SRCDIR		= ./sources
 
-SRCS		= main.c classes/t_rgb/rgb_init.c classes/t_rgb/rgb_to_int.c       \
-    	      classes/t_win/win_init.c classes/t_inst/inst_init.c              \
-			  classes/t_inst/inst_close_win.c classes/t_map/map_init.c         \
-			  handlers/err_exit.c classes/t_rgb/rgb_from_int.c
+SRCS		= $(wildcard sources/*.c)                                          \
+			  $(wildcard sources/*/*.c)                                        \
+			  $(wildcard sources/*/*/*.c)
 
-OBJS		= $(addprefix $(SRCDIR)/, $(SRCS:.c=.o))
+OBJS		= $(SRCS:.c=.o)
 
 CL_GREY		= \033[38;5;247m
 

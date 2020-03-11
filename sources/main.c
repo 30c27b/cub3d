@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:03:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/10 14:27:45 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/11 10:12:35 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,10 @@
 
 #include "cub3d.h"
 
-int			main(void)
+int			main(int argc, char **argv)
 {
-	t_inst	instance;
+	//t_inst	instance;
 
-	int w = 1920;
-	int h = 1080;
-	instance = inst_init(map_init(1920, 1080));
-	void *img = mlx_xpm_file_to_image(instance.ptr, "./assets/textures/bbt.xpm", &w, &h);
-	mlx_put_image_to_window(instance.ptr, instance.win.ptr, img, 0, 0);
-	mlx_loop(instance.ptr);
+	//instance = inst_init(map_init(WIN_MAX_W, WIN_MAX_H));
+	map_parser(argc, argv);
 }

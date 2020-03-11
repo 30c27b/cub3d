@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 11:13:42 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/10 15:23:07 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/03/11 11:07:50 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,24 @@
 
 void		mp_read_file(t_map_file *file)
 {
-	t_uint64	i;
 	char		*line;
 	t_list		*el;
 	
-	if (!(file->fd = open(file->path, O_RDONLY)))
+	if ((file->fd = open(file->path, O_RDONLY)) < 0)
 		err_exit(ERRTYPE_NOMAP);
-	while (ft_gnl(file->fd, &line))
+	while (get_next_line(file->fd, &line) > 0)
 	{
 		if (!(el = ft_lstnew((void *)line)))
 		{
-			ft_lstclear(file->file, &free);
+			ft_lstclear(&file->data, &free);
 			err_exit(ERRTYPE_NOMEM);
 		}
-		ft_lstadd_back(file->file, el);
+		ft_lstadd_back(&file->data, el);
 	}
+	if (!(el = ft_lstnew((void *)line)))
+	{
+		ft_lstclear(&file->data, &free);
+		err_exit(ERRTYPE_NOMEM);
+	}
+	ft_lstadd_back(&file->data, el);
 }
