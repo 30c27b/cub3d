@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:40:49 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/04/25 12:57:40 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/04/25 14:39:26 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		file_print(t_file file)
 	t_list	*el;
 
 	el = file.data;
-	while(el)
+	while (el)
 	{
 		ft_putstr_fd((char *)el->content, 1);
 		ft_putchar_fd('\n', 1);

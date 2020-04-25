@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:03:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/04/25 12:38:51 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/04/25 14:39:49 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static void	parse_args(int ac, char **av, t_file *file)
 	file->path = av[1];
 }
 
-t_file		file_init(int ac, char **av) {
+t_file		file_init(int ac, char **av)
+{
 	t_file	file;
 	char	*line;
 	t_list	*el;
