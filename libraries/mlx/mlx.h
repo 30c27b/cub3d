@@ -46,8 +46,6 @@
 
 #define	MLX_H
 
-#define GL_SILENCE_DEPRECATION 1
-
 void	*mlx_init();
 /*
 **  needed before everything else.

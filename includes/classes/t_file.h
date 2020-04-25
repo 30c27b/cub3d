@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mp_check_file.c                                    :+:      :+:    :+:   */
+/*   t_file.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/11 11:13:51 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/11 11:54:20 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/04/25 11:58:03 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/04/25 13:13:11 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef T_FILE_H
+# define T_FILE_H
+
 # include "cub3d.h"
 
-static void	mp_del_empty(t_map_file *file)
-{
-	t_list	*el;
-	t_list	tmp;
+/*
+** Structure **************************************************************** **
+*/
 
-	el = file->data;
-	while (el)
-	{
-		if (!el->content || !el->content[0])
-			ft_lstdelone(el, &free);
-	}
-}
-
-void		mp_check_file(t_map_file *file)
+typedef struct	s_file
 {
-	if (ft_lstsize(file->data) < 11)
-		err_exit(ERRTYPE_BADMAP);
-}
+	t_bool	save;
+	char	*path;
+	t_int32	fd;
+	t_list	*data;
+}				t_file;
+
+/*
+** Methods ****************************************************************** **
+*/
+
+t_file			file_init(int ac, char **av);
+void			file_free(t_file *file);
+void			file_print(t_file file);
+
+#endif

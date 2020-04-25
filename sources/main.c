@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:03:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/11 10:12:35 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/04/25 12:56:41 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@
 
 int			main(int argc, char **argv)
 {
-	//t_inst	instance;
+	t_file	file;
 
-	//instance = inst_init(map_init(WIN_MAX_W, WIN_MAX_H));
-	map_parser(argc, argv);
+	file = file_init(argc, argv);
+	file_print(file);
+	file_free(&file);
+	exit(EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2020/03/11 10:06:30 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/04/25 13:02:05 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,9 +45,9 @@ SRCS		= $(wildcard sources/*.c)                                          \
 
 OBJS		= $(SRCS:.c=.o)
 
-CL_GREY		= \033[38;5;247m
+CL_GREY		= \033[38;2;128;128;128m
 
-CL_BLUE		= \033[38;34m
+CL_GREEN	= \033[38;2;0;153;0m
 
 CL_RESET	= \033[0m
 
@@ -57,21 +57,21 @@ CL_RESET	= \033[0m
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			@echo "$(CL_BLUE)-> COMPILING LIBFT$(CL_RESET)"
+			@echo "$(CL_GREEN)-> COMPILING LIBFT$(CL_RESET)"
 			@echo "$(CL_GREY)"
 			@$(MAKE) -C $(LFTDIR)
 			@echo "$(CL_RESET)"
-			@echo "$(CL_BLUE)-> COMPILING MLX$(CL_RESET)"
+			@echo "$(CL_GREEN)-> COMPILING MLX$(CL_RESET)"
 			@echo "$(CL_GREY)"
 			@$(MAKE) -C $(MLXDIR)
 			@echo "$(CL_RESET)"
-			@echo "$(CL_BLUE)-> COMPILING CUB3D$(CL_RESET)"
+			@echo "$(CL_GREEN)-> COMPILING CUB3D$(CL_RESET)"
 			@echo "$(CL_GREY)"
 			$(CC) -o $(NAME) $(OBJS) $(LIBS)
 			@echo "$(CL_RESET)"
 
 clean:
-			@echo "$(CL_BLUE)-> CLEAN$(CL_RESET)"
+			@echo "$(CL_GREEN)-> CLEAN$(CL_RESET)"
 			@echo "$(CL_GREY)"
 			@$(MAKE) -C $(LFTDIR) clean
 			@$(MAKE) -C $(MLXDIR) clean
@@ -79,7 +79,7 @@ clean:
 			@echo "$(CL_RESET)"
 
 fclean:		clean
-			@echo "$(CL_BLUE)-> FCLEAN$(CL_RESET)"
+			@echo "$(CL_GREEN)-> FCLEAN$(CL_RESET)"
 			@echo "$(CL_GREY)"
 			@$(MAKE) -C $(LFTDIR) fclean
 			$(RM) $(NAME)

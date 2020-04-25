@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:46:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/10 15:32:00 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/04/25 13:16:07 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define CUB3D_H
 
 /*
-** Libraries **************************************************************** **
+** Standard libraries ******************************************************* **
 */
 
 # include <sys/types.h>
@@ -40,7 +40,7 @@
 # include <string.h>
 
 /*
-** Extern libraries ********************************************************* **
+** External libraries ******************************************************* **
 */
 
 # include "libraries/libft/libft.h"
@@ -51,6 +51,7 @@
 */
 
 # include "classes/t_rgb.h"
+# include "classes/t_file.h"
 # include "classes/t_map.h"
 # include "classes/t_win.h"
 # include "classes/t_inst.h"
@@ -60,7 +61,6 @@
 */
 
 # include "handlers/err_exit.h"
-# include "handlers/map_parser.h"
 
 /*
 ** Definitions ************************************************************** **
