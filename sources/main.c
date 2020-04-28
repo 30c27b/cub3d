@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:03:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/04/25 12:56:41 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/04/25 14:55:43 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int			main(int argc, char **argv)
 
 	file = file_init(argc, argv);
 	file_print(file);
-	file_free(&file);
+	file_free(file);
 	exit(EXIT_SUCCESS);
 }

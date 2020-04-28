@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/04/25 13:24:34 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/04/25 18:22:25 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ typedef struct	s_map
 	void		*tx_we;
 	void		*tx_ea;
 	void		*tx_s;
-	t_rgb		cl_f;
-	t_rgb		cl_c;
-	t_list		*data;
+	t_rgb		cl_floor;
+	t_rgb		cl_ceiling;
+	t_uint64	map_x;
+	t_uint64	map_x;
+	t_int32		**map;
 	t_bool		save;
 }				t_map;
 
@@ -38,6 +40,6 @@ typedef struct	s_map
 ** Methods ****************************************************************** **
 */
 
-t_map			map_init(t_uint64 x, t_uint64 y);
+t_map			map_init(t_file file);
 
 #endif

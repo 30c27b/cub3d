@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:33:35 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/04/25 12:55:34 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/04/25 14:55:30 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void			file_free(t_file *file)
+void			file_free(t_file file)
 {
-	ft_lstclear(&file->data, &free);
+	ft_lstclear(&file.data, &free);
 }

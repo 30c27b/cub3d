@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:03:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/04/25 14:39:49 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/04/25 17:36:32 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ t_file		file_init(int ac, char **av)
 		err_exit(ERRTYPE_NOMEM);
 	}
 	ft_lstadd_back(&file.data, el);
+	close(file.fd);
 	return (file);
 }
