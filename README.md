@@ -1,4 +1,11 @@
-# Cub3D
+<h1 align="center"><code>cub3d</code></h1>
+
+<div align="center">
+	<sub>Created by <a href="https://antoinecoulon.com/">Antoine Coulon</a></sub>
+	<sub>As part of my cursus at <a href="https://s19.be/">19</a></sub>
+</div>
+
+---
 
 ## Description
 
@@ -10,19 +17,20 @@ To make my code easier to read, debug and upgrade, I decided to organise my code
 
 ## Usage
 
-Compilation
-```
+#### Compilation
+```shell
 $ cd cub3d
 $ make
 ```
 
-Starting
-```
+#### Starting
+```shell
 $ ./Cub3D map.cub [--save]
 ```
 
-Arguments:
+#### Arguments:
 `map.cub`: map to use
+
 `--save`: optional, saves the first image instead of launching the game
 
 ## Progression 
@@ -34,7 +42,3 @@ Arguments:
 - [ ] Raycasting
 - [ ] Textures
 - [ ] Sprites
-
-## Credit
-
-Written by [Antoine Coulon](https://github.com/CoulonAntoine).
