@@ -2,6 +2,8 @@
 
 <div align="center">
 	<sub>Created by <a href="https://antoinecoulon.com/">Antoine Coulon</a></sub>
+</div>
+<div align="center">
 	<sub>As part of my cursus at <a href="https://s19.be/">19</a></sub>
 </div>
 
