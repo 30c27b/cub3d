@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 14:09:01 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/04/25 18:20:42 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/08/20 13:03:55 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,20 @@ static void	parse(t_file file, t_map *map)
 {
 	t_list	*line;
 	t_int32	lines;
+	char	*content;
+	t_uint8 el_flag[8];
 
 	line = file.data;
 	lines = 0;
-	while (line)
+	ft_bzero(el_flag, 8);
+	while (line && line->content)
 	{
-		if ((char *)line->content && ((char *)line->content)[0])
+		content = (char *)line->content;
+		if (!content[0])
 		{
-			
-			lines++;
+
 		}
+		line = line->next;
 	}
 }
 
@@ -37,5 +41,6 @@ t_map		map_init(t_file file)
 	map.res_y = WIN_MAX_H;
 	map.save = file.save;
 	parse(file, &map);
+	file_free(file);
 	return (map);
 }

@@ -17,14 +17,14 @@
 # include <unistd.h>
 # include <limits.h>
 
-# define BIT_0 0x01
-# define BIT_1 0x02
-# define BIT_2 0x04
-# define BIT_3 0x08
-# define BIT_4 0x10
-# define BIT_5 0x20
-# define BIT_6 0x40
-# define BIT_7 0x80
+# define BIT_0 0b00000001
+# define BIT_1 0b00000010
+# define BIT_2 0b00000100
+# define BIT_3 0b00001000
+# define BIT_4 0b00010000
+# define BIT_5 0b00100000
+# define BIT_6 0b01000000
+# define BIT_7 0b10000000
 
 typedef signed char		t_int8;
 typedef unsigned char	t_uint8;
