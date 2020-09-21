@@ -6,10 +6,13 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/21 15:19:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/21 15:20:36 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/21 17:22:40 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void map_id_r()
+void map_id_r(t_map *map, char *line)
+{
+
+}
