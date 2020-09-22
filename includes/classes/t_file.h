@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:58:03 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/04/25 14:55:21 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/22 14:45:46 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct	s_file
 ** Methods ****************************************************************** **
 */
 
-t_file			file_init(int ac, char **av);
+void			file_init(t_file *file, int ac, char **av);
 void			file_free(t_file file);
 void			file_print(t_file file);
 

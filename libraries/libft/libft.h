@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 10:35:53 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/11 09:58:14 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/22 13:42:24 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			**ft_split(char const *s, char c);
+void			ft_splitfree(char **strs);
 void			*ft_calloc(size_t count, size_t size);
 char			*ft_strdup(const char *s1);
 char			*ft_strndup(char const *str, int len);

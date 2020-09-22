@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:03:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/04/25 17:36:32 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/22 14:47:06 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,28 @@ static void	parse_args(int ac, char **av, t_file *file)
 	file->path = av[1];
 }
 
-t_file		file_init(int ac, char **av)
+void		file_init(t_file *file, int ac, char **av)
 {
-	t_file	file;
 	char	*line;
 	t_list	*el;
 
-	parse_args(ac, av, &file);
-	if ((file.fd = open(file.path, O_RDONLY)) < 0)
+	parse_args(ac, av, file);
+	if ((file->fd = open(file->path, O_RDONLY)) < 0)
 		err_exit(ERRTYPE_NOMAP);
-	while (get_next_line(file.fd, &line) > 0)
+	while (get_next_line(file->fd, &line) > 0)
 	{
 		if (!(el = ft_lstnew((void *)line)))
 		{
-			ft_lstclear(&file.data, &free);
+			ft_lstclear(&file->data, &free);
 			err_exit(ERRTYPE_NOMEM);
 		}
-		ft_lstadd_back(&file.data, el);
+		ft_lstadd_back(&file->data, el);
 	}
 	if (!(el = ft_lstnew((void *)line)))
 	{
-		ft_lstclear(&file.data, &free);
+		ft_lstclear(&file->data, &free);
 		err_exit(ERRTYPE_NOMEM);
 	}
-	ft_lstadd_back(&file.data, el);
-	close(file.fd);
-	return (file);
+	ft_lstadd_back(&file->data, el);
+	close(file->fd);
 }

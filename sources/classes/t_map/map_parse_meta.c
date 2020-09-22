@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 11:17:21 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/22 12:46:23 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/22 14:50:55 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,34 +38,32 @@ static void	redirect(t_uint8* flag, t_uint8 bit, t_map *map, char *line)
 			g_meta_identifiers[i].parser(map, line);
 			return ;
 		}
+		i++;
 	}
 	err_exit(ERRTYPE_BADMAP);
 }
 
-int			map_parse_meta(t_map * map, char *line)
+void			map_parse_meta(t_map * map, char *line, t_uint8 *flag)
 {
-	t_uint8	flag;
-
-	flag = 0b00000000;
 	if (ft_strlen(line) < 2)
 		err_exit(ERRTYPE_BADMAP);
 	if (!ft_strncmp(line, "R ", 2))
-		redirect(&flag, BIT_0, map, line);
+		redirect(flag, BIT_0, map, line);
 	else if (!ft_strncmp(line, "NO ", 3))
-		redirect(&flag, BIT_1, map, line);
+		redirect(flag, BIT_1, map, line);
 	else if (!ft_strncmp(line, "SO ", 3))
-		redirect(&flag, BIT_2, map, line);
+		redirect(flag, BIT_2, map, line);
 	else if (!ft_strncmp(line, "WE ", 3))
-		redirect(&flag, BIT_3, map, line);
+		redirect(flag, BIT_3, map, line);
 	else if (!ft_strncmp(line, "EA ", 3))
-		redirect(&flag, BIT_4, map, line);
+		redirect(flag, BIT_4, map, line);
 	else if (!ft_strncmp(line, "S ", 2))
-		redirect(&flag, BIT_5, map, line);
+		redirect(flag, BIT_5, map, line);
 	else if (!ft_strncmp(line, "F ", 2))
-		redirect(&flag, BIT_6, map, line);
+		redirect(flag, BIT_6, map, line);
 	else if (!ft_strncmp(line, "C ", 2))
-		redirect(&flag, BIT_7, map, line);
+		redirect(flag, BIT_7, map, line);
 	else
 		err_exit(ERRTYPE_BADMAP);
-	return (flag == 0b11111111);
 }
+
