@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/08/20 12:40:24 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/22 12:45:44 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,27 @@ typedef struct	s_map
 	t_bool		save;
 }				t_map;
 
-// typedef enum	e_map_el
-// {
-// 	FLAG_R = BIT_0,
-// 	FLAG_NO = BIT_1,
-// 	FLAG_SO = BIT_2,
-// 	FLAG_WE = BIT_3,
-// 	FLAG_EA = BIT_4,
-// 	FLAG_S = BIT_5,
-// 	FLAG_F = BIT_6,
-// 	FLAG_C = BIT_7
-// }				t_map_el;
+typedef struct	s_map_meta
+{
+	t_uint8		identifier;
+	void		(*parser)(t_map*, char*);
+}				t_map_meta;
 
 /*
 ** Methods ****************************************************************** **
 */
 
-t_map			map_init(t_file file);
+t_map		map_init(t_file file);
+
+int			map_parse_meta(t_map * map, char *line);
+
+void		map_meta_r(t_map *map, char *line);
+void		map_meta_no(t_map *map, char *line);
+void		map_meta_so(t_map *map, char *line);
+void		map_meta_we(t_map *map, char *line);
+void		map_meta_ea(t_map *map, char *line);
+void		map_meta_s(t_map *map, char *line);
+void		map_meta_f(t_map *map, char *line);
+void		map_meta_c(t_map *map, char *line);
 
 #endif

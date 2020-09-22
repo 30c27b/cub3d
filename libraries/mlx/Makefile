@@ -11,8 +11,8 @@ CFLAGS+=-O2
 # add to match string put with X11 in size and position
 CFLAGS+= -DSTRINGPUTX11
 
-# silence depreciation warnings (MacOS Catalina 10.15.x)
-CFLAGS+= -DGL_SILENCE_DEPRECATION=1
+# silence depreciation warnings (MacOS Mojave 10.14.x & Catalina 10.15.x)
+CFLAGS+= -Wno-deprecated-declarations
 
 
 all: $(NOM)
