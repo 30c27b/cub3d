@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:03:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/23 13:43:06 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/23 13:47:39 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_file		*file_init(int ac, char **av)
 	t_list	*el;
 
 	file = malloc(sizeof(t_file));
+	ft_memset(file, 0, sizeof(t_file));
 	printf("created file\n");
 	parse_args(ac, av, file);
 	if ((file->fd = open(file->path, O_RDONLY)) < 0)

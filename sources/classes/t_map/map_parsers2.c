@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 13:22:39 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/23 13:10:25 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/23 14:23:00 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		map_meta_ea(t_map *map, char *line)
 	if (i != 2)
 		err_exit(ERRTYPE_BADMAP);
 	map->tx_ea = ft_strdup(strs[1]);
-	ft_splitfree(strs);
+	//ft_splitfree(strs);
 }
 
 void		map_meta_s(t_map *map, char *line)
@@ -41,7 +41,7 @@ void		map_meta_s(t_map *map, char *line)
 	if (i != 2)
 		err_exit(ERRTYPE_BADMAP);
 	map->tx_s = ft_strdup(strs[1]);
-	ft_splitfree(strs);
+	//ft_splitfree(strs);
 }
 
 void		map_meta_f(t_map *map, char *line)
