@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 14:09:01 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/22 16:51:43 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/22 18:19:37 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static t_list	*parse_meta(t_map *map, t_list *list)
 		el = el->next;
 	}
 	err_exit(ERRTYPE_BADMAP);
+	exit(EXIT_FAILURE);
 }
 
 static void		map_size(t_map *map, t_list *list)
@@ -52,23 +53,28 @@ static void		parse_map_line(t_map *map, char *line, size_t index)
 {
 	size_t	i;
 	size_t	len;
+	int		pos;
 
 	i = 0;
+	pos = 0;
 	len = ft_strlen(line);
 	if (!(map->content[index] = malloc(map->width)))
 		err_exit(ERRTYPE_NOMEM);
 	ft_memset(map->content[index], -1, map->width);
 	while (line[i])
 	{
-		if (line[i] == '0')
-			map->content[index][i] = 0;
-		if (line[i] == '1')
-			map->content[index][i] = 1;
-		if (line[i] == '2')
-			map->content[index][i] = 2;
-		if (line[i] == 'N' || line[i] == 'E' ||line[i] == 'S' ||line[i] == 'W')
+		if (line[i] >= '0' && line[i] <= '2')
+			map->content[index][i] = line[i] - 48;
+		else if (line[i] == 'N' || line[i] == 'E' || line[i] == 'S' || line[i] == 'W')
+		{
+			if (pos++)
+				err_exit(ERRTYPE_BADMAP);
 			map->content[index][i] = 3;
-			// TODO: change direction in map class, check if only 1 direction
+			map->direction = line[i];
+		}
+		else if (line[i] != ' ')
+			err_exit(ERRTYPE_BADMAP);
+		i++;
 	}
 }
 
@@ -89,13 +95,13 @@ static void 	parse_map(t_map *map, t_list *list)
 		if (((char *)el->content)[0] == '\0')
 			break;
 		parse_map_line(map, (char *)el->content, i);
+		el = el->next;
+		i++;
 	}
-	err_exit(ERRTYPE_BADMAP);
 }
 
 void			map_init(t_map *map, t_file file)
 {
 	map->save = file.save;
 	parse_map(map, parse_meta(map, file.data));
-	// TODO : check if map is enclosed
 }

@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 11:17:21 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/22 14:50:55 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/22 18:40:32 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	redirect(t_uint8* flag, t_uint8 bit, t_map *map, char *line)
 	err_exit(ERRTYPE_BADMAP);
 }
 
-void			map_parse_meta(t_map * map, char *line, t_uint8 *flag)
+void			map_parse_meta(t_map *map, char *line, t_uint8 *flag)
 {
 	if (ft_strlen(line) < 2)
 		err_exit(ERRTYPE_BADMAP);
