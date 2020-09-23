@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:03:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/22 18:27:21 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/23 13:38:29 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,12 @@
 
 int			main(int argc, char **argv)
 {
-	t_file	file;
-	t_map	map;
+	t_file	*file;
+	t_map	*map;
 
-	file_init(&file, argc, argv);
-	file_print(file);
-	map_init(&map, file);
-	//file_free(file);
+	file = file_init(argc, argv);
+	map = map_init(file);
 	map_print(map);
+	printf("\nyo [%s]\n", map->tx_we);
 	exit(EXIT_SUCCESS);
 }

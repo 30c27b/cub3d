@@ -1,5 +1,5 @@
 R 800 800
-NO ./assets/textures/bluestone.xpm
+NO ./assets/textures/wood.xpm
 SO ./assets/textures/bluestone.xpm
 WE ./assets/textures/colorstone.xpm
 EA ./assets/textures/redbrick.xpm

@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 14:09:01 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/22 18:19:37 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/23 13:36:14 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ static void 	parse_map(t_map *map, t_list *list)
 	el = list;
 	end = 0;
 	i = 0;
+	map->direction = '\0';
 	while (el && el->content)
 	{
 		if (((char *)el->content)[0] == '\0')
@@ -98,10 +99,16 @@ static void 	parse_map(t_map *map, t_list *list)
 		el = el->next;
 		i++;
 	}
+	if (map->direction == '\0')
+		err_exit(ERRTYPE_BADMAP);
 }
 
-void			map_init(t_map *map, t_file file)
+t_map		*map_init(t_file *file)
 {
-	map->save = file.save;
-	parse_map(map, parse_meta(map, file.data));
+	t_map	*map;
+
+	map = malloc(sizeof(t_map));
+	map->save = file->save;
+	parse_map(map, parse_meta(map, file->data));
+	return (map);
 }

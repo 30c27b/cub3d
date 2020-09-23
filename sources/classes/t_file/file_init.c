@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:03:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/22 14:47:06 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/23 13:43:06 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,14 @@ static void	parse_args(int ac, char **av, t_file *file)
 	file->path = av[1];
 }
 
-void		file_init(t_file *file, int ac, char **av)
+t_file		*file_init(int ac, char **av)
 {
+	t_file	*file;
 	char	*line;
 	t_list	*el;
 
+	file = malloc(sizeof(t_file));
+	printf("created file\n");
 	parse_args(ac, av, file);
 	if ((file->fd = open(file->path, O_RDONLY)) < 0)
 		err_exit(ERRTYPE_NOMAP);
@@ -48,4 +51,6 @@ void		file_init(t_file *file, int ac, char **av)
 	}
 	ft_lstadd_back(&file->data, el);
 	close(file->fd);
+	printf("returned file\n");
+	return (file);
 }
