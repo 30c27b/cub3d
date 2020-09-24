@@ -1,7 +1,7 @@
 <h1 align="center"><code>cub3d</code></h1>
 
 <div align="center">
-	<sub>Created by <a href="https://github.com/30c37b">Antoine Coulon</a></sub>
+	<sub>Created by <a href="https://github.com/30c27b">Antoine Coulon</a></sub>
 </div>
 <div align="center">
 	<sub>As part of my cursus at <a href="https://s19.be/">19</a></sub>
