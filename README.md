@@ -1,7 +1,7 @@
 <h1 align="center"><code>cub3d</code></h1>
 
 <div align="center">
-	<sub>Created by <a href="https://antoinecoulon.com/">Antoine Coulon</a></sub>
+	<sub>Created by <a href="https://github.com/30c37b">Antoine Coulon</a></sub>
 </div>
 <div align="center">
 	<sub>As part of my cursus at <a href="https://s19.be/">19</a></sub>
@@ -15,9 +15,14 @@ Cub3D is a simplified recreation of the famous video game [Wolfenstein 3D](https
 
 ## My approach
 
-To make my code easier to read, debug and upgrade, I decided to organise my code in an object-oriented style, simplified because of C limitations.
+To make my code easier to read, debug and upgrade, I decided to organise my code in an object-oriented style, simplified because of C limitations (no classes, methods, etc).
 
 ## Usage
+
+#### Installation
+```shell
+$ git clone https://github.com/30c27b/cub3d.git
+```
 
 #### Compilation
 ```shell
@@ -25,22 +30,12 @@ $ cd cub3d
 $ make
 ```
 
-#### Starting
+#### Launching Cub3D
 ```shell
-$ ./Cub3D map.cub [--save]
+$ ./Cub3D map [--save]
 ```
 
 #### Arguments:
-`map.cub`: map to use
+`map`: .cub file, examples [here](/assets/maps).
 
 `--save`: optional, saves the first image instead of launching the game
-
-## Progression 
-
-- [x] Error handling
-- [ ] Classes
-- [ ] Input handling
-- [ ] Map parsing
-- [ ] Raycasting
-- [ ] Textures
-- [ ] Sprites
