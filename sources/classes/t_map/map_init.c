@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 14:09:01 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/24 11:28:09 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/24 13:49:12 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static void 	parse_map(t_map *map, t_list *list)
 	size_t	i;
 
 	map_size(map, list);
-	if (!(map->content = (t_int8 **)malloc(map->height)))
+	if (!(map->content = (t_int8 **)malloc(map->height * sizeof(t_int8 *))))
 		err_exit(ERRTYPE_NOMEM);
 	el = list;
 	end = 0;
