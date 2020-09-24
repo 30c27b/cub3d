@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 13:43:54 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/23 13:24:40 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/24 22:27:37 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,8 @@ void		map_print(t_map *map)
 		}
 		printf("]\n");
 	}
+	printf("floor:\n");
+	rgb_print(map->cl_floor);
+	printf("ceiling:\n");
+	rgb_print(map->cl_ceiling);
 }

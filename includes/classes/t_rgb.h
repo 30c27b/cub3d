@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:51 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/24 14:51:33 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/24 22:22:30 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ typedef struct	s_rgb
 t_rgb			rgb_init(t_uint8 r, t_uint8 g, t_uint8 b);
 t_int32			rgb_to_int(t_rgb color);
 t_rgb			rbg_from_int(t_int32 ref);
+void			rgb_print(t_rgb color);
 
 #endif
