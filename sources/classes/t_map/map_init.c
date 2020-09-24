@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 14:09:01 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/23 13:53:37 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/24 11:28:09 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,12 @@ static void 	parse_map(t_map *map, t_list *list)
 t_map		*map_init(t_file *file)
 {
 	t_map	*map;
+	t_list	*map_start;
 
 	map = malloc(sizeof(t_map));
 	ft_memset(map, 0, sizeof(t_map));
 	map->save = file->save;
-	parse_map(map, parse_meta(map, file->data));
-	printf("\ninit: {%s}\n", map->tx_no);
+	map_start = parse_meta(map, file->data);
+	parse_map(map, map_start);
 	return (map);
 }
