@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:03:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 11:04:01 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 12:10:36 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static char	*parse_args(int ac, char **av, t_file *file)
 {
+	size_t	len;
+
 	if (ac < 2 || ac > 3)
 		err_exit(ERRTYPE_NOARG);
 	if (!av[1][0])
@@ -21,6 +23,11 @@ static char	*parse_args(int ac, char **av, t_file *file)
 	if (ac == 3 && ft_strcmp("--save", av[2]))
 		err_exit(ERRTYPE_BADARG2);
 	file->save = (ac == 3) ? TRUE : FALSE;
+	len = ft_strlen(av[1]);
+	if (len < 5)
+		err_exit(ERRTYPE_BADARG);
+	if (ft_strcmp(av[1] + (len - 4), ".cub"))
+		err_exit(ERRTYPE_BADARG);
 	return (av[1]);
 }
 
