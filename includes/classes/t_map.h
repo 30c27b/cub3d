@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/24 22:38:25 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:44:08 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ typedef struct	s_map_meta
 */
 
 t_map		*map_init(t_file *file);
+t_map		*map_free(t_map *map);
 
 void		map_print(t_map *map);
+
 
 /*
 ** Private methods ****************************************************************** **

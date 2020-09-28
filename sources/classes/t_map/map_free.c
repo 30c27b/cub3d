@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_free.c                                        :+:      :+:    :+:   */
+/*   map_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/25 12:33:35 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 11:43:41 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/09/28 11:38:45 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/09/28 11:42:46 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_file			*file_free(t_file *file)
+t_map		*map_free(t_map *map)
 {
-	ft_lstclear(&file->data, &free);
-	free(file);
+	size_t	i;
+
+	i = 0;
+	while (i < map->height)
+	{
+		free(map->content[i]);
+		i++;
+	}
+	free(map->content);
+	free(map->tx_no);
+	free(map->tx_so);
+	free(map->tx_we);
+	free(map->tx_ea);
+	free(map);
 	return (NULL);
 }

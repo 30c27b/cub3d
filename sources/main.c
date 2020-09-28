@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:03:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 11:36:50 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:43:07 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int			main(int argc, char **argv)
 
 	file = file_init(argc, argv);
 	map = map_init(file);
-	file_free(file);
+	file = file_free(file);
 	map_print(map);
+	map = map_free(map);
 	exit(EXIT_SUCCESS);
 }
