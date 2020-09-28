@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_free.c                                        :+:      :+:    :+:   */
+/*   inst_start.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/25 12:33:35 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 14:23:33 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/09/28 13:24:06 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/09/28 13:25:05 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void			file_free(t_file *file)
+void		inst_start(t_inst instance)
 {
-	ft_lstclear(&file->data, &free);
-	free(file);
+	mlx_loop(instance.ptr);
 }

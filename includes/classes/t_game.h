@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_free.c                                        :+:      :+:    :+:   */
+/*   t_game.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/25 12:33:35 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 14:23:33 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/09/28 13:25:39 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/09/28 14:31:48 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef T_GAME_H
+# define T_GAME_H
 
-void			file_free(t_file *file)
+# include "cub3d.h"
+
+/*
+** Structure **************************************************************** **
+*/
+
+typedef struct	s_game
 {
-	ft_lstclear(&file->data, &free);
-	free(file);
-}
+	t_map	*map;
+	t_inst	mlx;
+	t_view	view;
+}				t_game;
+
+/*
+** Methods ****************************************************************** **
+*/
+
+t_game		*game_init(int ac, char **av);
+void		game_start(t_game *game);
+
+#endif

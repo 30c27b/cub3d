@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 11:38:45 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 11:42:46 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 14:24:16 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_map		*map_free(t_map *map)
+void		map_free(t_map *map)
 {
 	size_t	i;
 
@@ -28,5 +28,4 @@ t_map		*map_free(t_map *map)
 	free(map->tx_we);
 	free(map->tx_ea);
 	free(map);
-	return (NULL);
 }

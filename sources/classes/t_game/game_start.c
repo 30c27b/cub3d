@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_free.c                                        :+:      :+:    :+:   */
+/*   game_start.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/25 12:33:35 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 14:23:33 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/09/28 14:35:34 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/09/28 14:36:18 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void			file_free(t_file *file)
+void		game_start(t_game *game)
 {
-	ft_lstclear(&file->data, &free);
-	free(file);
+	mlx_loop(game->mlx.ptr);
 }
