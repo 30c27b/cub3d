@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 11:44:08 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:52:36 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,26 +47,25 @@ typedef struct	s_map_meta
 ** Methods ****************************************************************** **
 */
 
-t_map		*map_init(t_file *file);
-t_map		*map_free(t_map *map);
+t_map			*map_init(t_file *file);
+t_map			*map_free(t_map *map);
 
-void		map_print(t_map *map);
-
+void			map_print(t_map *map);
 
 /*
-** Private methods ****************************************************************** **
+** Private methods ********************************************************** **
 */
 
-void 		map_parse_content(t_map *map, t_list *list);
-t_list		*map_parse_meta(t_map *map, t_list *list);
-void		map_meta_r(t_map *map, char *line);
-void		map_meta_no(t_map *map, char *line);
-void		map_meta_so(t_map *map, char *line);
-void		map_meta_we(t_map *map, char *line);
-void		map_meta_ea(t_map *map, char *line);
-void		map_meta_s(t_map *map, char *line);
-void		map_meta_f(t_map *map, char *line);
-void		map_meta_c(t_map *map, char *line);
-void		map_enclosing(t_map *map);
+void			map_parse_content(t_map *map, t_list *list);
+t_list			*map_parse_meta(t_map *map, t_list *list);
+void			map_meta_r(t_map *map, char *line);
+void			map_meta_no(t_map *map, char *line);
+void			map_meta_so(t_map *map, char *line);
+void			map_meta_we(t_map *map, char *line);
+void			map_meta_ea(t_map *map, char *line);
+void			map_meta_s(t_map *map, char *line);
+void			map_meta_f(t_map *map, char *line);
+void			map_meta_c(t_map *map, char *line);
+void			map_enclosing(t_map *map);
 
 #endif

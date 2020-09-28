@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 13:22:39 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 11:29:56 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 12:00:02 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	is_digit(unsigned int i, char c)
 void		map_meta_ea(t_map *map, char *line)
 {
 	size_t	i;
-	char **strs;
+	char	**strs;
 
 	if (!(strs = ft_split(line, ' ')))
 		err_exit(ERRTYPE_NOMEM);

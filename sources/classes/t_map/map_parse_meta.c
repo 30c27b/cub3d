@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 11:17:21 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 11:21:42 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 12:02:26 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ t_map_meta	g_meta_identifiers[8] = {
 	{BIT_7, &map_meta_c},
 };
 
-static void	redirect(t_uint8* flag, t_uint8 bit, t_map *map, char *line)
+static void	redirect(t_uint8 *flag, t_uint8 bit, t_map *map, char *line)
 {
 	size_t	i;
-	
+
 	if (*flag & bit)
 		err_exit(ERRTYPE_BADMAP);
 	*flag |= bit;
@@ -78,18 +78,18 @@ t_list		*map_parse_meta(t_map *map, t_list *list)
 	end = FALSE;
 	while (el && el->content && end == FALSE)
 	{
-		if (ft_isdigit(((char *)el->content)[0]) || ((char *)el->content)[0] == ' ')
+		if (ft_isdigit(((char *)el->content)[0]) ||
+		((char *)el->content)[0] == ' ')
 		{
 			end = TRUE;
-			break;
+			break ;
 		}
 		else if (((char *)el->content)[0] != '\0')
 			parse_meta_line(map, (char *)el->content, &flag);
 		el = el->next;
 	}
 	if (end == TRUE && flag == 0b11111111)
-			return (el);
+		return (el);
 	err_exit(ERRTYPE_BADMAP);
 	exit(EXIT_FAILURE);
 }
-

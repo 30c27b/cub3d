@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 14:03:14 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 11:23:49 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:59:35 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ static void		parse_content_line(t_map *map, char *line, size_t index)
 	{
 		if (line[i] >= '0' && line[i] <= '2')
 			map->content[index][i] = line[i] - 48;
-		else if (line[i] == 'N' || line[i] == 'E' || line[i] == 'S' || line[i] == 'W')
+		else if (line[i] == 'N' || line[i] == 'E' ||
+		line[i] == 'S' || line[i] == 'W')
 		{
 			if (map->direction)
 				err_exit(ERRTYPE_BADMAP);
@@ -57,7 +58,7 @@ static void		parse_content_line(t_map *map, char *line, size_t index)
 	}
 }
 
-void 		map_parse_content(t_map *map, t_list *list)
+void			map_parse_content(t_map *map, t_list *list)
 {
 	t_list	*el;
 	int		end;
@@ -73,7 +74,7 @@ void 		map_parse_content(t_map *map, t_list *list)
 	while (el && el->content)
 	{
 		if (((char *)el->content)[0] == '\0')
-			break;
+			break ;
 		parse_content_line(map, (char *)el->content, i);
 		el = el->next;
 		i++;

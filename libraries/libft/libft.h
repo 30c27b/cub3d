@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 10:35:53 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/22 13:42:24 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:55:16 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 # include <unistd.h>
 # include <limits.h>
 
-# define BIT_0 0b00000001
-# define BIT_1 0b00000010
-# define BIT_2 0b00000100
-# define BIT_3 0b00001000
-# define BIT_4 0b00010000
-# define BIT_5 0b00100000
-# define BIT_6 0b01000000
-# define BIT_7 0b10000000
+# define BIT_0 1
+# define BIT_1 2
+# define BIT_2 4
+# define BIT_3 8
+# define BIT_4 16
+# define BIT_5 32
+# define BIT_6 64
+# define BIT_7 128
 
 typedef signed char		t_int8;
 typedef unsigned char	t_uint8;
