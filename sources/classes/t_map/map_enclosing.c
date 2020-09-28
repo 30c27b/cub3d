@@ -6,23 +6,20 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 22:33:53 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/24 22:53:09 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:26:54 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	is_inside_map(t_map *map, size_t i, size_t j)
+static t_bool	is_inside_map(t_map *map, size_t i, size_t j)
 {
-	if (i >= 0 && i < map->height)
-	{
-		if (j >= 0 && j < map->width)
-			return (1);
-	}
-	return (0);
+	if (i >= 0 && i < map->height && j >= 0 && j < map->width)
+			return (TRUE);
+	return (FALSE);
 }
 
-static void	check_enclosing(t_map *map, size_t i, size_t j)
+static void		check_enclosing(t_map *map, size_t i, size_t j)
 {
 	if (!is_inside_map(map, i + 1, j) || map->content[i + 1][j] == ' ')
 		err_exit(ERRTYPE_BADMAP);
@@ -34,7 +31,7 @@ static void	check_enclosing(t_map *map, size_t i, size_t j)
 		err_exit(ERRTYPE_BADMAP);
 }
 
-void		map_enclosing(t_map *map)
+void			map_enclosing(t_map *map)
 {
 	size_t	i;
 	size_t	j;
@@ -47,9 +44,7 @@ void		map_enclosing(t_map *map)
 		{
 			if (map->content[i][j] == 0 || map->content[i][j] == 2 ||
 			map->content[i][j] == 3)
-			{
 				check_enclosing(map, i, j);
-			}
 			j++;
 		}
 		i++;

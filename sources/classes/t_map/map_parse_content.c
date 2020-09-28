@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 14:03:14 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/24 14:13:14 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:23:49 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ void 		map_parse_content(t_map *map, t_list *list)
 		el = el->next;
 		i++;
 	}
-	if (map->direction == 0)
+	if (!map->direction)
 		err_exit(ERRTYPE_BADMAP);
 }

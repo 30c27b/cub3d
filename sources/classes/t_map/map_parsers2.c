@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 13:22:39 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/24 22:27:22 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:29:56 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		map_meta_ea(t_map *map, char *line)
 	size_t	i;
 	char **strs;
 
-	if ((strs = ft_split(line, ' ')) == 0)
+	if (!(strs = ft_split(line, ' ')))
 		err_exit(ERRTYPE_NOMEM);
 	i = 0;
 	while (strs[i])
@@ -41,7 +41,7 @@ void		map_meta_s(t_map *map, char *line)
 	size_t	i;
 	char	**strs;
 
-	if ((strs = ft_split(line, ' ')) == 0)
+	if (!(strs = ft_split(line, ' ')))
 		err_exit(ERRTYPE_NOMEM);
 	i = 0;
 	while (strs[i])
@@ -72,7 +72,6 @@ void		map_meta_f(t_map *map, char *line)
 		ft_strmapi(strs[i++], &is_digit);
 	map->cl_floor = rgb_init(ft_atoi(strs[0]), ft_atoi(strs[1]),
 	ft_atoi(strs[2]));
-	i = 0;
 	ft_splitfree(strs);
 	free(str);
 }
@@ -97,7 +96,6 @@ void		map_meta_c(t_map *map, char *line)
 		ft_strmapi(strs[i++], &is_digit);
 	map->cl_ceiling = rgb_init(ft_atoi(strs[0]), ft_atoi(strs[1]),
 	ft_atoi(strs[2]));
-	i = 0;
 	ft_splitfree(strs);
 	free(str);
 }

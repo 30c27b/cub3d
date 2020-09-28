@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 12:24:38 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/24 13:51:06 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:30:17 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		map_meta_r(t_map *map, char *line)
 	size_t	i;
 	char **strs;
 
-	if ((strs = ft_split(line, ' ')) == 0)
+	if (!(strs = ft_split(line, ' ')))
 		err_exit(ERRTYPE_NOMEM);
 	i = 0;
 	while (strs[i])
@@ -36,7 +36,7 @@ void		map_meta_no(t_map *map, char *line)
 	size_t	i;
 	char **strs;
 
-	if ((strs = ft_split(line, ' ')) == 0)
+	if (!(strs = ft_split(line, ' ')))
 		err_exit(ERRTYPE_NOMEM);
 	i = 0;
 	while (strs[i])
@@ -52,7 +52,7 @@ void		map_meta_so(t_map *map, char *line)
 	size_t	i;
 	char **strs;
 
-	if ((strs = ft_split(line, ' ')) == 0)
+	if (!(strs = ft_split(line, ' ')))
 		err_exit(ERRTYPE_NOMEM);
 	i = 0;
 	while (strs[i])
@@ -68,7 +68,7 @@ void		map_meta_we(t_map *map, char *line)
 	size_t	i;
 	char **strs;
 
-	if ((strs = ft_split(line, ' ')) == 0)
+	if (!(strs = ft_split(line, ' ')))
 		err_exit(ERRTYPE_NOMEM);
 	i = 0;
 	while (strs[i])

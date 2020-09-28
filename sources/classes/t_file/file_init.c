@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:03:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/24 13:51:28 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:04:01 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	parse_args(int ac, char **av, t_file *file)
+static char	*parse_args(int ac, char **av, t_file *file)
 {
 	if (ac < 2 || ac > 3)
 		err_exit(ERRTYPE_NOARG);
@@ -21,35 +21,33 @@ static void	parse_args(int ac, char **av, t_file *file)
 	if (ac == 3 && ft_strcmp("--save", av[2]))
 		err_exit(ERRTYPE_BADARG2);
 	file->save = (ac == 3) ? TRUE : FALSE;
-	file->path = av[1];
+	return (av[1]);
 }
 
 t_file		*file_init(int ac, char **av)
 {
-	t_file	*file;
-	char	*line;
-	t_list	*el;
+	t_file		*file;
+	char		*path;
+	char		*line;
+	t_list		*el;
+	extern int	g_file_fd;
 
-	file = malloc(sizeof(t_file));
+	if (!(file = malloc(sizeof(t_file))))
+		err_exit(ERRTYPE_NOMEM);
 	ft_memset(file, 0, sizeof(t_file));
-	parse_args(ac, av, file);
-	if ((file->fd = open(file->path, O_RDONLY)) < 0)
+	path = parse_args(ac, av, file);
+	if ((g_file_fd = open(path, O_RDONLY)) < 0)
 		err_exit(ERRTYPE_NOMAP);
-	while (get_next_line(file->fd, &line) > 0)
+	while (get_next_line(g_file_fd, &line) > 0)
 	{
 		if (!(el = ft_lstnew((void *)line)))
-		{
-			ft_lstclear(&file->data, &free);
 			err_exit(ERRTYPE_NOMEM);
-		}
 		ft_lstadd_back(&file->data, el);
 	}
 	if (!(el = ft_lstnew((void *)line)))
-	{
-		ft_lstclear(&file->data, &free);
 		err_exit(ERRTYPE_NOMEM);
-	}
 	ft_lstadd_back(&file->data, el);
-	close(file->fd);
+	close(g_file_fd);
+	g_file_fd = -1;
 	return (file);
 }

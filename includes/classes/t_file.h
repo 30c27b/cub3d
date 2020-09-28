@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:58:03 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/23 14:07:55 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:00:33 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 typedef struct	s_file
 {
 	t_bool	save;
-	char	*path;
-	t_int32	fd;
 	t_list	*data;
 }				t_file;
 

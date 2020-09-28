@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 11:17:21 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/24 14:02:28 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/28 11:21:42 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,17 +71,24 @@ t_list		*map_parse_meta(t_map *map, t_list *list)
 {
 	t_uint8	flag;
 	t_list	*el;
+	t_bool	end;
 
 	flag = 0b00000000;
 	el = list;
-	while (el && el->content)
+	end = FALSE;
+	while (el && el->content && end == FALSE)
 	{
 		if (ft_isdigit(((char *)el->content)[0]) || ((char *)el->content)[0] == ' ')
-			return (el);
+		{
+			end = TRUE;
+			break;
+		}
 		else if (((char *)el->content)[0] != '\0')
 			parse_meta_line(map, (char *)el->content, &flag);
 		el = el->next;
 	}
+	if (end == TRUE && flag == 0b11111111)
+			return (el);
 	err_exit(ERRTYPE_BADMAP);
 	exit(EXIT_FAILURE);
 }
