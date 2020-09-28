@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_vect.h                                           :+:      :+:    :+:   */
+/*   t_view.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 12:19:04 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 12:58:27 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/09/28 12:27:15 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/09/28 12:28:44 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_VECT_H
-# define T_VECT_H
+#ifndef T_VIEW_H
+# define T_VIEW_H
 
 # include "cub3d.h"
 
@@ -19,20 +19,17 @@
 ** Structure **************************************************************** **
 */
 
-typedef struct	s_vect
+typedef struct	s_view
 {
-	double	x;
-	double	y;
-}				t_vect;
+	t_vect	position;
+	t_vect	direction;
+	t_vect	plane;
+}				t_view;
 
 /*
 ** Methods ****************************************************************** **
 */
 
-t_vect			vect_init(double x, double y);
-t_vect			vect_addv(t_vect v1, t_vect v2);
-t_vect			vect_multv(t_vect v1, t_vect v2);
-t_vect			vect_add(t_vect v, double n);
-t_vect			vect_mult(t_vect v, double n);
+t_view			view_init(t_map *map);
 
 #endif
