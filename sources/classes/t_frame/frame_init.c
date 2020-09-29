@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 14:57:55 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/29 15:08:27 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/29 15:47:44 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ t_frame		*frame_init(t_game *game)
 	game->map->res_y);
 	frame->addr = mlx_get_data_addr(frame->img, &frame->bpp, &frame->line_len,
 	&frame->endian);
+	return (frame);
 }

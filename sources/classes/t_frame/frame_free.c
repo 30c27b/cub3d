@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rgb_to_int.c                                       :+:      :+:    :+:   */
+/*   frame_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 12:12:37 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/29 15:51:04 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/09/29 15:52:42 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/09/29 15:54:04 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_uint32	rgb_to_int(t_rgb color)
+void		frame_free(t_frame *frame, t_game *game)
 {
-	return ((color.r * 256 * 256) + (color.g * 256) + color.b);
+	mlx_destroy_image(game->mlx.ptr, frame->img);
+	free(frame);
 }

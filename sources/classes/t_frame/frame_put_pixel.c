@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 15:10:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/29 15:20:14 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/29 15:52:32 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,7 @@
 void		frame_put_pixel(t_frame *frame, t_vect pos, t_rgb color)
 {
 	char	*pxl;
+
+	pxl = frame->addr + (pos.x * frame->line_len + pos.x * (frame->bpp / 8));
+	*(t_uint32 *)pxl = rgb_to_int(color);
 }
