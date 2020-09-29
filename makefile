@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2020/09/29 14:18:48 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/09/29 14:36:04 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,10 +55,6 @@ CL_RESET	= \033[0m
 
 .c.o:
 			@${CC} ${CFLAGS} -c $^ -o $@
-
-# $(MLX):
-# 			make -C $(MLXDIR)
-# 			mv $(MLXDIR)/$(MLX) .
 
 all:		$(NAME)
 
