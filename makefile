@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2020/09/28 12:17:35 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/09/29 14:18:48 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,11 @@ LFTDIR		= ./libraries/libft
 
 MLXDIR		= ./libraries/mlx
 
+MLX			= libmlx.dylib
+
 CFLAGS		= -Wall -Wextra -Werror -I. -I./includes
 
-LIBS		= -L$(LFTDIR) -lft -L$(MLXDIR) -lmlx -framework OpenGL             \
+LIBS		= -L$(LFTDIR) -lft -L. -lmlx -framework OpenGL             \
 			  -framework AppKit -lm
 
 SRCDIR		= ./sources
@@ -54,6 +56,10 @@ CL_RESET	= \033[0m
 .c.o:
 			@${CC} ${CFLAGS} -c $^ -o $@
 
+# $(MLX):
+# 			make -C $(MLXDIR)
+# 			mv $(MLXDIR)/$(MLX) .
+
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
@@ -63,7 +69,8 @@ $(NAME):	$(OBJS)
 			@echo "$(CL_RESET)"
 			@echo "$(CL_GREEN)-> COMPILING MLX$(CL_RESET)"
 			@echo "$(CL_GREY)"
-			@$(MAKE) -C $(MLXDIR)
+			@make -C $(MLXDIR)
+			@mv $(MLXDIR)/$(MLX) .
 			@echo "$(CL_RESET)"
 			@echo "$(CL_GREEN)-> COMPILING CUB3D$(CL_RESET)"
 			@echo "$(CL_GREY)"
@@ -83,6 +90,7 @@ fclean:		clean
 			@echo "$(CL_GREY)"
 			@$(MAKE) -C $(LFTDIR) fclean
 			$(RM) $(NAME)
+			$(RM) $(MLX)
 			@echo "$(CL_RESET)"
 
 re:			fclean all
