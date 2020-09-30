@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 14:50:24 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/29 20:17:53 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 typedef struct	s_map
 {
-	t_uint64	res_x;
-	t_uint64	res_y;
+	int			res_x;
+	int			res_y;
 	char		*tx_no;
 	char		*tx_so;
 	char		*tx_we;
@@ -51,7 +51,6 @@ typedef struct	s_map_meta
 
 t_map			*map_init(int ac, char **av);
 void			map_free(t_map *map);
-void			map_print(t_map *map);
 
 /*
 ** Private methods ********************************************************** **
