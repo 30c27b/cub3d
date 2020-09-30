@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 14:22:24 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/29 16:28:14 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/30 14:08:06 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,31 @@ typedef struct	s_frame
 	void	*addr;
 	int		bpp;
 	int		line_len;
-	int	endian;
+	int		endian;
 }				t_frame;
+
+// typedef enum	e_side
+// {
+// 	N,
+// 	E,
+// 	S,
+// 	W
+// }				t_side;
+
+typedef struct	s_frame_ray
+{
+	double	cam;
+	t_fvect	dir;
+	t_vect	tile;
+	t_fvect	side_dist;
+	t_fvect	delta_dist;
+	double	wall_dist;
+	t_vect	step;
+	t_bool	hit;
+	int		wall_side;
+
+}				t_frame_ray;
+
 
 /*
 ** Methods ****************************************************************** **
@@ -35,8 +58,8 @@ typedef struct	s_frame
 
 t_frame			*frame_init(t_game *game);
 void			frame_put_pixel(t_frame *frame, t_vect pos, t_rgb color);
-void			frame_free(t_frame *frame);
-void			frame_push(t_frame *frame);
 void			frame_put_line(t_frame *frame, t_vect top, int len, t_rgb color);
+void			frame_push(t_frame *frame);
+void			frame_free(t_frame *frame);
 
 #endif

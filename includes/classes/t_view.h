@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 12:27:15 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/30 10:55:45 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/30 12:04:14 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 typedef struct	s_view
 {
-	t_fvect	position;
-	t_fvect	direction;
+	t_fvect	pos;
+	t_fvect	dir;
 	t_fvect	fov;
 }				t_view;
 

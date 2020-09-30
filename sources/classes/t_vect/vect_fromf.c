@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   view_init.c                                        :+:      :+:    :+:   */
+/*   vect_fromf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 12:29:12 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/30 15:36:22 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/09/30 12:06:48 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/09/30 12:50:14 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_view		*view_init(t_map *map)
+t_vect			vect_fromf(t_fvect fvect)
 {
-	t_view	*view;
+	t_vect	vect;
 
-	(void)map;
-	if (!(view = ft_calloc(1, sizeof(t_view))))
-		err_exit(ERRTYPE_NOMEM);
-	view->dir= fvect_init(-1, 0);
-	view->fov = fvect_init(0, 0.66);
-	view->pos = fvect_init(map->pos_x - 0.1, map->pos_y - 0.1);
-	printf("%f, %f\n",view->pos.x, view->pos.y);
-	return (view);
+	vect.x = (t_int64)fvect.x;
+	vect.y = (t_int64)fvect.y;
+	return (vect);
 }
