@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   win_init.c                                         :+:      :+:    :+:   */
+/*   display_free.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 12:44:49 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/09 16:38:51 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/03/09 12:54:30 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/09/30 10:48:04 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_win		win_init(void *mlx_ptr, t_uint64 x, t_uint64 y)
+void		display_free(t_display *display)
 {
-	t_win	win;
-
-	win.x = x;
-	win.y = y;
-	if (!(win.ptr = mlx_new_window(mlx_ptr, x, y, C3D_TITLE)))
-		err_exit(ERRTYPE_MLX);
-	return (win);
+	mlx_destroy_window(display->mlx_ptr, display->win_ptr);
+	free(display);
 }

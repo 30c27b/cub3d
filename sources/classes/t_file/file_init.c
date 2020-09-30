@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:03:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 12:10:36 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/30 10:52:51 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ t_file		*file_init(int ac, char **av)
 	t_list		*el;
 	extern int	g_file_fd;
 
-	if (!(file = malloc(sizeof(t_file))))
+	if (!(file = ft_calloc(1, sizeof(t_file))))
 		err_exit(ERRTYPE_NOMEM);
-	ft_memset(file, 0, sizeof(t_file));
 	path = parse_args(ac, av, file);
 	if ((g_file_fd = open(path, O_RDONLY)) < 0)
 		err_exit(ERRTYPE_NOMAP);

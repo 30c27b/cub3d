@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 12:27:15 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/29 15:57:13 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/30 10:55:45 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct	s_view
 ** Methods ****************************************************************** **
 */
 
-t_view			view_init(t_map *map);
+t_view			*view_init(t_map *map);
+void			view_free(t_view *view);
 
 #endif
