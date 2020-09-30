@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 13:25:39 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 14:31:48 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/09/30 10:07:20 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 typedef struct	s_game
 {
-	t_map	*map;
-	t_inst	mlx;
-	t_view	view;
+	t_map		*map;
+	t_display	display;
+	t_view		view;
 }				t_game;
 
 /*
