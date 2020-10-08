@@ -12,26 +12,20 @@
 
 #include "cub3d.h"
 
-// static void	ray_print(t_frame_ray ray)
-// {
-// 	printf("cam: %f\ndir: %f ; %f\ntile %ld ; %ld\n", ray.cam, ray.dir.x, ray.dir.y, ray.tile.x, ray.tile.y);
-// 	printf("delta_dist: %f ; %f\nside_dist: %f ; %f\n", ray.delta_dist.x, ray.delta_dist.y, ray.side_dist.x, ray.side_dist.y);
-// }
+static void	ray_print(t_frame_ray ray)
+{
+	printf("cam: %f\ndir: %f ; %f\ntile %ld ; %ld\n", ray.cam, ray.dir.x, ray.dir.y, ray.tile.x, ray.tile.y);
+	printf("delta_dist: %f ; %f\nside_dist: %f ; %f\n", ray.delta_dist.x, ray.delta_dist.y, ray.side_dist.x, ray.side_dist.y);
+}
 
 static t_frame_ray	ray_process_init(t_frame *frame, size_t x)
 {
 	t_frame_ray	ray;
-
-	ray.cam = 2 * x / (double)frame->game->map->width - 1;
+	ray.cam = 2 * x / (double)frame->game->map->res_x - 1;
 	ray.dir = fvect_addv(frame->game->view->dir,
 	fvect_mult(frame->game->view->fov, ray.cam));
 	ray.tile = vect_fromf(frame->game->view->pos);
-	if (ray.dir.x && ray.dir.y)
-		ray.delta_dist = fvect_init(fabs(1 / ray.dir.x), fabs(1 / ray.dir.y));
-	else if (!ray.dir.x && !ray.dir.y)
-		ray.delta_dist = fvect_init(0, 0);
-	else
-		ray.delta_dist = fvect_init((ray.dir.x) ? 0 : 1, (ray.dir.y) ? 0 : 1);
+	ray.delta_dist = fvect_init(fabs(1 / ray.dir.x), fabs(1 / ray.dir.y));
 	ray.hit = 0;
 	ray.step.x =  (ray.dir.x < 0) ? -1 : 1;
 	ray.step.y =  (ray.dir.y < 0) ? -1 : 1;
@@ -43,7 +37,7 @@ static t_frame_ray	ray_process_init(t_frame *frame, size_t x)
 		ray.side_dist.y = (frame->game->view->pos.y - ray.tile.y) * ray.delta_dist.y;
 	else
 		ray.side_dist.y = (ray.tile.y + 1.0 - frame->game->view->pos.y) * ray.delta_dist.y;
-	//ray_print(ray);
+	ray_print(ray);
 	return (ray);
 }
 
@@ -91,7 +85,7 @@ static void			ray_draw(t_frame *frame, t_frame_ray *ray, size_t x)
 		color = rgb_init(255, 50, 50);
 	else
 		color = rgb_init(50, 255, 50);
-	//printf("put: %d - %d\n", line_top, line_h);
+	printf("put: %d - %d\n", line_top, line_h);
 	frame_put_line(frame, vect_init(x, line_top), line_h, color);
 }
 
@@ -107,12 +101,14 @@ static void			ray_process(t_frame *frame, size_t x)
 void				frame_loop(t_game *game)
 {
 	t_frame		*frame;
-	size_t		i;
+	int		i;
 
 	frame = frame_init(game);
 	i = 0;
-	while (i < game->map->width)
+	printf("res_x_: %d\n", game->map->res_x);
+	while (i < game->map->res_x)
 		ray_process(frame, i++);
 	frame_push(frame);
 	frame_free(frame);
+	exit(0);
 }

@@ -21,7 +21,6 @@ t_view		*view_init(t_map *map)
 		err_exit(ERRTYPE_NOMEM);
 	view->dir= fvect_init(-1, 0);
 	view->fov = fvect_init(0, 0.66);
-	view->pos = fvect_init(map->pos_x - 0.1, map->pos_y - 0.1);
-	printf("%f, %f\n",view->pos.x, view->pos.y);
+	view->pos = fvect_init(map->pos_x, map->pos_y);
 	return (view);
 }
