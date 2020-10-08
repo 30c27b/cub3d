@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 15:55:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 16:11:22 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/10/08 14:55:54 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 #include "cub3d.h"
 
-void		frame_loop(t_game *game);
+void		beta_frame_loop(t_game *game);
 
 #endif

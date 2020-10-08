@@ -41,7 +41,7 @@ typedef struct	s_frame_ray
 {
 	double	cam;
 	t_fvect	dir;
-	t_vect	tile;
+	t_vect	map;
 	t_fvect	side_dist;
 	t_fvect	delta_dist;
 	double	wall_dist;
