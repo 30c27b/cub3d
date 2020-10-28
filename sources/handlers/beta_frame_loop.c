@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 14:54:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/10/08 16:03:41 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/10/28 10:43:44 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void				beta_frame_loop(t_game *game)
 		double rayDirX = game->view->dir.x + (planeX * cameraX);
 		double rayDirY = game->view->dir.y + (planeY * cameraX);
 
-		int mapX = (int)game->map->pos_x;
-		int mapY = (int)game->map->pos_y;
+		int mapX = (int)game->view->pos.x;
+		int mapY = (int)game->view->pos.y;
 
 		double sideDistX;
 		double sideDistY;
@@ -45,22 +45,22 @@ void				beta_frame_loop(t_game *game)
 		if (rayDirX < 0)
 		{
 			stepX = -1;
-			sideDistX = (game->map->pos_x - mapX) * deltaDistX;
+			sideDistX = (game->view->pos.x - mapX) * deltaDistX;
 		}
 		else
 		{
 			stepX = 1;
-			sideDistX = (mapX + 1.0 - game->map->pos_x) * deltaDistX;
+			sideDistX = (mapX + 1.0 - game->view->pos.x) * deltaDistX;
 		}
 		if (rayDirY < 0)
 		{
 			stepY = -1;
-			sideDistY = (game->map->pos_y - mapY) * deltaDistY;
+			sideDistY = (game->view->pos.y - mapY) * deltaDistY;
 		}
 		else
 		{
 			stepY = 1;
-			sideDistY = (mapY + 1.0 - game->map->pos_y) * deltaDistY;
+			sideDistY = (mapY + 1.0 - game->view->pos.y) * deltaDistY;
 		}
 
 		while (hit == 0)
@@ -81,9 +81,9 @@ void				beta_frame_loop(t_game *game)
 		}
 
 		if (side == 0)
-			perpWallDist = (mapX - game->map->pos_x + (1 - stepX) / 2) / rayDirX;
+			perpWallDist = (mapX - game->view->pos.x + (1 - stepX) / 2) / rayDirX;
 		else
-			perpWallDist = (mapY - game->map->pos_y + (1 - stepY) / 2) / rayDirY;
+			perpWallDist = (mapY - game->view->pos.y + (1 - stepY) / 2) / rayDirY;
 
 		int lineHeight = (int)(800 / perpWallDist);
 

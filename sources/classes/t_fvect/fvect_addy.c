@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_start.c                                       :+:      :+:    :+:   */
+/*   fvect_addy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 14:35:34 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/10/28 09:28:10 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/10/28 10:03:15 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/10/28 10:45:05 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		game_start(t_game *game)
+t_fvect		fvect_addy(t_fvect v, double n)
 {
-	mlx_loop_hook(game->display->mlx_ptr, &hook_loop, (void *)game);
-	mlx_key_hook(game->display->win_ptr, &hook_key, (void *)game);
-	mlx_loop(game->display->mlx_ptr);
+	t_fvect	vect;
+
+	vect.x = v.x;
+	vect.y = v.y + n;
+	return (vect);
 }
