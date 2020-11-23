@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 10:02:50 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/10/28 10:44:51 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/11/19 18:03:06 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ t_fvect		fvect_addx(t_fvect v, double n)
 	t_fvect	vect;
 
 	vect.x = v.x + n;
-	vect.x = v.y;
+	vect.y = v.y;
 	return (vect);
 }
