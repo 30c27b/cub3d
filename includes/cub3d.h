@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:46:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/11/23 20:19:34 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/04 18:17:40 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@
 # include "classes/t_display.h"
 # include "classes/t_game.h"
 # include "classes/t_frame.h"
+# include "classes/t_ray.h"
 
 /*
 ** Handlers *** ************************************************************* **

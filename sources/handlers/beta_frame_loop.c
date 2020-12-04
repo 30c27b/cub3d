@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 14:54:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/11/30 20:39:04 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/04 18:35:36 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,76 +14,59 @@
 
 void beta_frame_loop(t_game *game)
 {
-	size_t i;
+	int i;
 	t_frame *frame;
+	t_ray	*ray;
 
 	i = 0;
 	frame = frame_init(game);
 
-	while (i < (size_t)game->map->res_x)
+	while (i < game->map->res_x)
 	{
-		double cameraX = 2 * i / (double)game->map->res_x - 1;
-		double rayDirX = game->view->dir.x + game->view->fov.x * cameraX;
-		double rayDirY = game->view->dir.y + game->view->fov.y * cameraX;
-		int mapX = (int)game->view->pos.x;
-		int mapY = (int)game->view->pos.y;
-
-		double sideDistX;
-		double sideDistY; 
-
-		double deltaDistX = (rayDirY == 0) ? 0 : ((rayDirX == 0) ? 1 : fabs(1 / rayDirX));
-		double deltaDistY = (rayDirX == 0) ? 0 : ((rayDirY == 0) ? 1 : fabs(1 / rayDirY));
-
-		double perpWallDist;
-
-		int stepX;
-		int stepY;
-
-		int hit = 0;
-		int side;
-		if (rayDirX < 0)
+		ray = ray_init(frame, i);
+		if (ray->dir.x < 0)
 		{
-			stepX = -1;
-			sideDistX = (game->view->pos.x - mapX) * deltaDistX;
+			ray->step.x = -1;
+			ray->side_dist.x = (game->view->pos.x - ray->map.x) * ray->delta_dist.x;
 		}
 		else
 		{
-			stepX = 1;
-			sideDistX = (mapX + 1.0 - game->view->pos.x) * deltaDistX;
+			ray->step.x = 1;
+			ray->side_dist.x = (ray->map.x + 1.0 - game->view->pos.x) * ray->delta_dist.x;
 		}
-		if (rayDirY < 0)
+		if (ray->dir.y < 0)
 		{
-			stepY = -1;
-			sideDistY = (game->view->pos.y - mapY) * deltaDistY;
+			ray->step.y = -1;
+			ray->side_dist.y = (game->view->pos.y - ray->map.y) * ray->delta_dist.y;
 		}
 		else
 		{
-			stepY = 1;
-			sideDistY = (mapY + 1.0 - game->view->pos.y) * deltaDistY;
+			ray->step.y = 1;
+			ray->side_dist.y = (ray->map.y + 1.0 - game->view->pos.y) * ray->delta_dist.y;
 		}
-		while (hit == 0)
+		while (ray->hit == 0)
 		{
-			if (sideDistX < sideDistY)
+			if (ray->side_dist.x < ray->side_dist.y)
 			{
-				sideDistX += deltaDistX;
-				mapX += stepX;
-				side = 0;
+				ray->side_dist.x += ray->delta_dist.x;
+				ray->map.x += ray->step.x;
+			ray->wall_side = 0;
 			}
 			else
 			{
-				sideDistY += deltaDistY;
-				mapY += stepY;
-				side = 1;
+				ray->side_dist.y += ray->delta_dist.y;
+				ray->map.y += ray->step.y;
+			ray->wall_side = 1;
 			}
-			if (game->map->content[mapX][mapY] > 0)
-				hit = 1;
+			if (game->map->content[ray->map.x][ray->map.y] > 0)
+				ray->hit = 1;
 		}
-		if (side == 0)
-			perpWallDist = (mapX - game->view->pos.x + (1 - stepX) / 2) / rayDirX;
+		if (ray->wall_side == 0)
+			ray->wall_dist = (ray->map.x - game->view->pos.x + (1 - ray->step.x) / 2) / ray->dir.x;
 		else
-			perpWallDist = (mapY - game->view->pos.y + (1 - stepY) / 2) / rayDirY;
+			ray->wall_dist = (ray->map.y - game->view->pos.y + (1 - ray->step.y) / 2) / ray->dir.y;
 
-		int lineHeight = (int)(game->map->res_y / perpWallDist);
+		int lineHeight = (int)(game->map->res_y / ray->wall_dist);
 
 		int drawStart = -lineHeight / 2 + game->map->res_y / 2;
 		if (drawStart < 0)
@@ -95,7 +78,7 @@ void beta_frame_loop(t_game *game)
 		t_rgb color;
 		color = rgb_init(255, 0, 0);
 
-		if (side == 1)
+		if (ray->wall_side == 1)
 		{
 			color.r /= 2;
 			color.g /= 2;
