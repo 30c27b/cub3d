@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:46:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/10/28 10:05:20 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/11/23 20:19:34 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@
 */
 
 # define C3D_TITLE "Cub3D"
+# define MOVE_SPEED 0.1
+# define ROT_SPEED 0.05
 
-# define WIN_MAX_W 2560
-# define WIN_MAX_H 1440
 
 #endif

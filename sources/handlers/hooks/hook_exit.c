@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_floor.c                                        :+:      :+:    :+:   */
+/*   hook_exit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 09:58:55 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/04 17:57:38 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/11/23 17:20:15 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/11/23 19:43:54 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_bool	map_isfloor(t_map *map, t_fvect v)
+int			hook_exit(int keycode, void *param)
 {
-	t_vect	round_pos;
+	t_game	*game;
 
-	round_pos = vect_fromf(v);
-	if (round_pos.x < 0 || (uint64_t)round_pos.x >= map->height)
-		return (FALSE);
-	if (round_pos.y < 0 || (uint64_t)round_pos.y >= map->width)
-		return (FALSE);
-	if (map->content[round_pos.x][round_pos.y] != 0)
-		return (FALSE);
-	return (TRUE);
+	game = (t_game *)param;
+	(void)keycode;
+	return (0);
 }

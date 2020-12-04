@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 12:29:12 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/11/19 18:01:49 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/11/23 19:36:28 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ t_view		*view_init(t_map *map)
 	view->dir = fvect_init(-1, 0);
 	view->fov = fvect_init(0, 0.66);
 	view->pos = fvect_init(map->pos_x, map->pos_y);
+	view->keyflag = 0b00000000;
 	return (view);
 }

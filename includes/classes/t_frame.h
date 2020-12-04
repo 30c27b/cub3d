@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 14:22:24 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/30 14:08:06 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/11/23 17:33:42 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,19 @@ typedef struct	s_frame
 	int		endian;
 }				t_frame;
 
-// typedef enum	e_side
+// typedef struct	s_frame_ray
 // {
-// 	N,
-// 	E,
-// 	S,
-// 	W
-// }				t_side;
+// 	double	cam;
+// 	t_fvect	dir;
+// 	t_vect	map;
+// 	t_fvect	side_dist;
+// 	t_fvect	delta_dist;
+// 	double	wall_dist;
+// 	t_vect	step;
+// 	t_bool	hit;
+// 	int		wall_side;
 
-typedef struct	s_frame_ray
-{
-	double	cam;
-	t_fvect	dir;
-	t_vect	map;
-	t_fvect	side_dist;
-	t_fvect	delta_dist;
-	double	wall_dist;
-	t_vect	step;
-	t_bool	hit;
-	int		wall_side;
-
-}				t_frame_ray;
+// }				t_frame_ray;
 
 
 /*
