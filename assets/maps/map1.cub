@@ -1,4 +1,4 @@
-R 1920 1080
+R 10000 10000
 NO ./assets/textures/wood.xpm
 SO ./assets/textures/bluestone.xpm
 WE ./assets/textures/colorstone.xpm

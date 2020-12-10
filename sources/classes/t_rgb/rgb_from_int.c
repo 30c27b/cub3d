@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 09:38:28 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/09 18:21:13 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/10 17:01:35 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_rgb		rgb_from_int(t_int32 ref)
+t_rgb		rgb_from_int(t_uint32 ref)
 {
-	return (rgb_init((ref & RGB_R) >> 16, (ref & RBG_G) >> 8, (ref & RBG_B)));
+	return (rgb_init(ref >> 16 & 255, ref >> 8 & 255, ref & 255));
 }

@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 14:54:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/09 19:38:30 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/10 16:04:06 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,57 +75,55 @@ void beta_frame_loop(t_game *game)
 		if (drawEnd >= game->map->res_y)
 			drawEnd = game->map->res_y - 1;
 
-		t_rgb color;
+		t_texture	*wall_tex;
 
+		switch (ray->wall_side) {
+			case 0:
+				wall_tex = game->map->tx_no;
+				break;
+			case 1:
+				wall_tex = game->map->tx_ea;
+				break;
+			case 2:
+				wall_tex = game->map->tx_so;
+				break;
+			case 3:
+				wall_tex = game->map->tx_we;
+				break;
+			default:
+				wall_tex = game->map->tx_s;
+		}
+
+		//calculate value of wallX
 		double wallX; //where exactly the wall was hit
-		if (ray->wall_side == 0)
+		if (ray->wall_side < 2)
 			wallX = game->view->pos.y + ray->wall_dist * ray->dir.y;
 		else
 			wallX = game->view->pos.x + ray->wall_dist * ray->dir.x;
 		wallX -= floor((wallX));
 
 		//x coordinate on the texture
-		int texX = (int)(wallX * 64.0);
-		if (ray->wall_side == 0 && ray->dir.x > 0)
-			texX = 64 - texX - 1;
-		if (ray->wall_side == 1 && ray->dir.y < 0)
-			texX = 64 - texX - 1;
+		int texX = (int)(wallX * (double)TEX_WIDTH);
+		if(ray->wall_side < 2 && ray->dir.x > 0)
+			texX = TEX_WIDTH - texX - 1;
+		if(ray->wall_side >= 2 && ray->dir.y < 0)
+			texX = TEX_WIDTH - texX - 1;
 		
-		double step = 1.0 * 64 / lineHeight;
-
-		double texPos = (drawStart - game->map->res_x / 2 + lineHeight / 2) * step;
+		// How much to increase the texture coordinate per screen pixel
+		double step = 1.0 * TEX_HEIGHT / lineHeight;
+		// Starting texture coordinate
+		double texPos = (drawStart - game->map->res_y / 2 + lineHeight / 2) * step;
 
 		for(int y = drawStart; y<drawEnd; y++)
-		 {
+		{
 			// Cast the texture coordinate to integer, and mask with (texHeight - 1) in case of overflow
-			int texY = (int)texPos & (64 - 1);
+			int texY = (int)texPos & (TEX_HEIGHT - 1);
 			texPos += step;
-			color = texture_get_pixel(game->map->tx_no, vect_init(texX, texY));
+			t_rgb color = texture_get_pixel(wall_tex, vect_init(texX, texY));
 			frame_put_pixel(frame, vect_init(i, y), color);
 		}
 
-		// switch (ray->wall_side) {
-		// 	case 0:
-		// 		color = rgb_init(255, 0, 0);
-		// 		break;
-		// 	case 1:
-		// 		color = rgb_init(0, 255, 0);
-		// 		break;
-		// 	case 2:
-		// 		color = rgb_init(0, 0, 255);
-		// 		break;
-		// 	case 3:
-		// 		color = rgb_init(255, 255, 0);
-		// 		break;
-		// 	default:
-		// 		color = rgb_init(255, 255, 255);
-		// }
-
-		// for (int y = drawStart; y < drawEnd; y++)
-		// {
-		// 	frame_put_pixel(frame, vect_init(i, y), color);
-		// }
-		//frame_put_line(frame, vect_init(i, drawStart), lineHeight, color);
+		ray_free(ray);
 		i++;
 	}
 
