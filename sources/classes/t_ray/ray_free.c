@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rgb_to_int.c                                       :+:      :+:    :+:   */
+/*   ray_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 12:12:37 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/09 18:19:44 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/12/08 16:21:06 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/12/08 16:21:46 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_uint32	rgb_to_int(t_rgb color)
+void		ray_free(t_ray *ray)
 {
-	return ((color.r * 256 * 256) + (color.g * 256) + color.b);
+	free(ray);
 }

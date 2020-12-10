@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:03:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/03/10 11:01:36 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/09 16:47:51 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # define ERRTYPE_BADARG2 "The second argument can only be '--save'."
 # define ERRTYPE_NOMAP "The map does not exist."
 # define ERRTYPE_BADMAP "The provided map is incorrect."
+# define ERRTYPE_BADTEX "One or more of the provided textures are incorrect."
+
 
 void			err_exit(char *msg);
 

@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 12:24:38 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 11:57:47 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/09 17:51:55 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void		map_meta_r(t_map *map, char *line)
 void		map_meta_no(t_map *map, char *line)
 {
 	size_t	i;
+	char	*path;
 	char	**strs;
 
 	if (!(strs = ft_split(line, ' ')))
@@ -43,13 +44,17 @@ void		map_meta_no(t_map *map, char *line)
 		i++;
 	if (i != 2)
 		err_exit(ERRTYPE_BADMAP);
-	map->tx_no = ft_strdup(strs[1]);
+	
+	if (!(path = ft_strdup(strs[1])))
+		err_exit(ERRTYPE_NOMEM);
+	map->tx_no = texture_init(path);
 	ft_splitfree(strs);
 }
 
 void		map_meta_so(t_map *map, char *line)
 {
 	size_t	i;
+	char	*path;
 	char	**strs;
 
 	if (!(strs = ft_split(line, ' ')))
@@ -59,13 +64,16 @@ void		map_meta_so(t_map *map, char *line)
 		i++;
 	if (i != 2)
 		err_exit(ERRTYPE_BADMAP);
-	map->tx_so = ft_strdup(strs[1]);
+	if (!(path = ft_strdup(strs[1])))
+		err_exit(ERRTYPE_NOMEM);
+	map->tx_so = texture_init(path);
 	ft_splitfree(strs);
 }
 
 void		map_meta_we(t_map *map, char *line)
 {
 	size_t	i;
+	char	*path;
 	char	**strs;
 
 	if (!(strs = ft_split(line, ' ')))
@@ -75,6 +83,8 @@ void		map_meta_we(t_map *map, char *line)
 		i++;
 	if (i != 2)
 		err_exit(ERRTYPE_BADMAP);
-	map->tx_we = ft_strdup(strs[1]);
+	if (!(path = ft_strdup(strs[1])))
+		err_exit(ERRTYPE_NOMEM);
+	map->tx_we = texture_init(path);
 	ft_splitfree(strs);
 }

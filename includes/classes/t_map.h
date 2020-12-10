@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/04 17:57:46 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/09 17:24:27 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ typedef struct	s_map
 {
 	int			res_x;
 	int			res_y;
-	char		*tx_no;
-	char		*tx_so;
-	char		*tx_we;
-	char		*tx_ea;
-	char		*tx_s;
+	t_texture	*tx_no;
+	t_texture	*tx_so;
+	t_texture	*tx_we;
+	t_texture	*tx_ea;
+	t_texture	*tx_s;
 	t_rgb		cl_floor;
 	t_rgb		cl_ceiling;
 	t_uint64	height;
@@ -50,6 +50,7 @@ typedef struct	s_map_meta
 */
 
 t_map			*map_init(int ac, char **av);
+void			map_process_tex(t_map *map, void *mlx_ptr);
 t_bool			map_isfloor(t_map *map, t_fvect v);
 void			map_free(t_map *map);
 

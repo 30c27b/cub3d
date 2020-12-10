@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 14:28:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/30 11:01:44 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/09 17:57:25 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ t_game		*game_init(int ac, char **av)
 	game->map = map_init(ac, av);
 	game->display = display_init(game->map);
 	game->view = view_init(game->map);
+	map_process_tex(game->map, game->display->mlx_ptr);
 	return (game);
 }

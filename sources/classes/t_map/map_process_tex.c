@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rgb_to_int.c                                       :+:      :+:    :+:   */
+/*   map_process_tex.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 12:12:37 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/09 18:19:44 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/12/09 17:23:36 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/12/09 17:58:30 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_uint32	rgb_to_int(t_rgb color)
+void		map_process_tex(t_map *map, void *mlx_ptr)
 {
-	return ((color.r * 256 * 256) + (color.g * 256) + color.b);
+	texture_process(map->tx_no, mlx_ptr);
+	texture_process(map->tx_ea, mlx_ptr);
+	texture_process(map->tx_so, mlx_ptr);
+	texture_process(map->tx_we, mlx_ptr);
+	texture_process(map->tx_s, mlx_ptr);
 }

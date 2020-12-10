@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 13:22:39 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 12:00:02 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/09 17:51:34 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static char	is_digit(unsigned int i, char c)
 void		map_meta_ea(t_map *map, char *line)
 {
 	size_t	i;
+	char	*path;
 	char	**strs;
 
 	if (!(strs = ft_split(line, ' ')))
@@ -32,13 +33,16 @@ void		map_meta_ea(t_map *map, char *line)
 		i++;
 	if (i != 2)
 		err_exit(ERRTYPE_BADMAP);
-	map->tx_ea = ft_strdup(strs[1]);
+	if (!(path = ft_strdup(strs[1])))
+		err_exit(ERRTYPE_NOMEM);
+	map->tx_ea = texture_init(path);
 	ft_splitfree(strs);
 }
 
 void		map_meta_s(t_map *map, char *line)
 {
 	size_t	i;
+	char	*path;
 	char	**strs;
 
 	if (!(strs = ft_split(line, ' ')))
@@ -48,7 +52,9 @@ void		map_meta_s(t_map *map, char *line)
 		i++;
 	if (i != 2)
 		err_exit(ERRTYPE_BADMAP);
-	map->tx_s = ft_strdup(strs[1]);
+	if (!(path = ft_strdup(strs[1])))
+		err_exit(ERRTYPE_NOMEM);
+	map->tx_s = texture_init(path);
 	ft_splitfree(strs);
 }
 

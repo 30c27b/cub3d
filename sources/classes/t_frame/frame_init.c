@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 14:57:55 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/30 10:51:31 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/09 18:17:12 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ t_frame		*frame_init(t_game *game)
 	if (!(frame = ft_calloc(1, sizeof(t_frame))))
 		err_exit(ERRTYPE_NOMEM);
 	frame->game = game;
-	frame->img = mlx_new_image(game->display->mlx_ptr, game->map->res_x,
-	game->map->res_y);
-	frame->addr = mlx_get_data_addr(frame->img, &frame->bpp, &frame->line_len,
-	&frame->endian);
+	if (!(frame->img = mlx_new_image(game->display->mlx_ptr, game->map->res_x,
+	game->map->res_y)))
+		err_exit(ERRTYPE_MLX);
+	if (!(frame->addr = mlx_get_data_addr(frame->img, &frame->bpp, &frame->line_len,
+	&frame->endian)))
+		err_exit(ERRTYPE_MLX);
 	return (frame);
 }
