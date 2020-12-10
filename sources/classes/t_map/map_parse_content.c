@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 14:03:14 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 14:51:42 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/10 18:01:24 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void		parse_content_line(t_map *map, char *line, size_t index)
 		{
 			if (map->direction)
 				err_exit(ERRTYPE_BADMAP);
-			map->content[index][i] = 3;
+			map->content[index][i] = 0;
 			map->direction = line[i];
 			map->pos_x = i;
 			map->pos_y = index;

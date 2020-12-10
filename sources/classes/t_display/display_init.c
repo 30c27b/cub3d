@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:37:18 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/30 11:19:52 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/10 18:19:21 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ t_display		*display_init(t_map *map)
 	mlx_get_screen_size(display->mlx_ptr, &screen_x, &screen_y);
 	map->res_x = map->res_x < screen_x ? map->res_x : screen_x;
 	map->res_y = map->res_y < screen_y ? map->res_y : screen_y;
-	if (!(display->win_ptr = mlx_new_window(display->mlx_ptr, map->res_x, map->res_y, C3D_TITLE)))
+	if (!(display->win_ptr = mlx_new_window(display->mlx_ptr, map->res_x,
+	map->res_y, C3D_TITLE)))
 		err_exit(ERRTYPE_MLX);
 	return (display);
 }

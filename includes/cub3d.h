@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:46:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/10 15:41:30 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/10 18:16:55 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,5 @@
 # define ROT_SPEED 0.05
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
-
 
 #endif

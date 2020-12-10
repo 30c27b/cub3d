@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 13:25:39 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/30 10:54:34 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/10 18:16:13 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct	s_game
 ** Methods ****************************************************************** **
 */
 
-t_game		*game_init(int ac, char **av);
-void		game_start(t_game *game);
+t_game			*game_init(int ac, char **av);
+void			game_start(t_game *game);
 
 #endif

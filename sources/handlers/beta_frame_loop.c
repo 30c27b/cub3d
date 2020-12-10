@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 14:54:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/10 16:04:06 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/10 18:29:13 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void beta_frame_loop(t_game *game)
 {
-	int i;
+	int screen_x;
 	t_frame *frame;
 	t_ray	*ray;
 
-	i = 0;
+	screen_x = 0;
 	frame = frame_init(game);
 
-	while (i < game->map->res_x)
+	while (screen_x < game->map->res_x)
 	{
-		ray = ray_init(frame, i);
+		ray = ray_init(frame, screen_x);
 		if (ray->dir.x < 0)
 		{
 			ray->step.x = -1;
@@ -82,13 +82,13 @@ void beta_frame_loop(t_game *game)
 				wall_tex = game->map->tx_no;
 				break;
 			case 1:
-				wall_tex = game->map->tx_ea;
-				break;
-			case 2:
 				wall_tex = game->map->tx_so;
 				break;
-			case 3:
+			case 2:
 				wall_tex = game->map->tx_we;
+				break;
+			case 3:
+				wall_tex = game->map->tx_ea;
 				break;
 			default:
 				wall_tex = game->map->tx_s;
@@ -120,11 +120,11 @@ void beta_frame_loop(t_game *game)
 			int texY = (int)texPos & (TEX_HEIGHT - 1);
 			texPos += step;
 			t_rgb color = texture_get_pixel(wall_tex, vect_init(texX, texY));
-			frame_put_pixel(frame, vect_init(i, y), color);
+			frame_put_pixel(frame, vect_init(screen_x, y), color);
 		}
 
 		ray_free(ray);
-		i++;
+		screen_x++;
 	}
 
 	frame_push(frame);
