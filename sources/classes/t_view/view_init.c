@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 12:29:12 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/10 18:05:08 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/11 21:17:31 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_view		*view_init(t_map *map)
 
 	if (!(view = ft_calloc(1, sizeof(t_view))))
 		err_exit(ERRTYPE_NOMEM);
-	view->pos = fvect_init(map->pos_x, map->pos_y);
+	view->pos = fvect_init(map->pos_x + 0.5, map->pos_y + 0.5);
 	view->keyflag = 0b00000000;
 	parse_direction(view, map);
 	return (view);

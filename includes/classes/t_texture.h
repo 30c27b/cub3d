@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:20:13 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/09 18:46:29 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:18:20 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ typedef struct	s_texture
 t_texture		*texture_init(char *path);
 void			texture_process(t_texture *texture, void *mlx_ptr);
 t_rgb			texture_get_pixel(t_texture *texture, t_vect pos);
-void			texture_free(t_texture *texture);
+void			texture_free(t_texture *texture, void *mlx_ptr);
 
 #endif
