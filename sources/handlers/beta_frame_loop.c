@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 14:54:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/16 16:54:23 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/16 17:17:53 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ void beta_frame_loop(t_game *game)
 	int screen_x;
 	t_frame *frame;
 	t_ray	*ray;
+	double	*z_buffer;
 
 	screen_x = 0;
 	frame = frame_init(game);
+	if (!(z_buffer = ft_calloc(game->map->res_x, sizeof(double))))
+		err_exit(ERRTYPE_NOMEM);
 
 	while (screen_x < game->map->res_x)
 	{
@@ -108,6 +111,7 @@ void beta_frame_loop(t_game *game)
 				frame_put_pixel(frame, vect_init(screen_x, screen_y), game->map->cl_floor);
 		}
 
+		z_buffer[screen_x] = ray->wall_dist; 
 		ray_free(ray);
 		screen_x++;
 	}
