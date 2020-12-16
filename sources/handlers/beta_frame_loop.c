@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 14:54:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/11 21:40:40 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/16 16:54:23 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,36 @@ void beta_frame_loop(t_game *game)
 	while (screen_x < game->map->res_x)
 	{
 		ray = ray_init(frame, screen_x);
-		ray_process(ray, game);
+		
+		
+		while (ray->hit == 0)
+		{
+			if (ray->side_dist.x < ray->side_dist.y)
+			{
+				ray->side_dist.x += ray->delta_dist.x;
+				ray->map.x += ray->step.x;
+				ray->wall_side = ray->dir.x < 0? 0: 1;
+			}
+			else
+			{
+				ray->side_dist.y += ray->delta_dist.y;
+				ray->map.y += ray->step.y;
+				ray->wall_side = ray->dir.y < 0? 2: 3;
+			}
+			if (game->map->content[ray->map.y][ray->map.x] == 1)
+				ray->hit = 1;
+		}
+
+
+
+		if (ray->wall_side < 2)
+			ray->wall_dist = (ray->map.x - game->view->pos.x +
+			(1 - ray->step.x) / 2) / ray->dir.x;
+		else
+			ray->wall_dist = (ray->map.y - game->view->pos.y +
+			(1 - ray->step.y) / 2) / ray->dir.y;
+
+
 
 		int lineHeight = (int)(game->map->res_y / ray->wall_dist);
 
@@ -36,13 +65,13 @@ void beta_frame_loop(t_game *game)
 			drawEnd = game->map->res_y - 1;
 
 		if (ray->wall_side== 0)
-			ray->wall_tex = game->map->tx_no;
-		else if (ray->wall_side== 1)
-			ray->wall_tex = game->map->tx_so;
-		else if (ray->wall_side== 2)
 			ray->wall_tex = game->map->tx_we;
-		else if (ray->wall_side== 3)
+		else if (ray->wall_side== 1)
 			ray->wall_tex = game->map->tx_ea;
+		else if (ray->wall_side== 2)
+			ray->wall_tex = game->map->tx_no;
+		else if (ray->wall_side== 3)
+			ray->wall_tex = game->map->tx_so;
 		else
 			ray->wall_tex = game->map->tx_no;
 

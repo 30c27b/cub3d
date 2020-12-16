@@ -3,10 +3,10 @@ NO ./assets/textures/wood.xpm
 SO ./assets/textures/bluestone.xpm
 WE ./assets/textures/colorstone.xpm
 EA ./assets/textures/redbrick.xpm
-S ./assets/textures/wood.xpm
+S ./assets/textures/barrel.xpm
 F 255, 255, 0
 C 0, 255, 0
 
- 1111111
-1N0000001
- 1111111
+ 1 
+1N1
+ 1 

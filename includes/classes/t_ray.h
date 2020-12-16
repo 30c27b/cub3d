@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 18:15:34 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/11 15:04:00 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/16 15:58:33 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct	s_ray
 */
 
 t_ray			*ray_init(t_frame *frame, int screen_x);
-void			ray_process(t_ray *ray, t_game *game);
 void			ray_free(t_ray *frame);
 
 #endif

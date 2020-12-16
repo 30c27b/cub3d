@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2020/09/29 14:36:04 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/12/16 15:15:40 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ MLXDIR		= ./libraries/mlx
 
 MLX			= libmlx.dylib
 
-CFLAGS		= -Wall -Wextra -Werror -I. -I./includes
+CFLAGS		= -Wall -Wextra -Werror -I. -I./includes #-g -fsanitize=address
 
 LIBS		= -L$(LFTDIR) -lft -L. -lmlx -framework OpenGL             \
 			  -framework AppKit -lm
@@ -70,7 +70,7 @@ $(NAME):	$(OBJS)
 			@echo "$(CL_RESET)"
 			@echo "$(CL_GREEN)-> COMPILING CUB3D$(CL_RESET)"
 			@echo "$(CL_GREY)"
-			$(CC) -o $(NAME) $(OBJS) $(LIBS)
+			$(CC) ${CFLAGS} -o $(NAME) $(OBJS) $(LIBS)
 			@echo "$(CL_RESET)"
 
 clean:
