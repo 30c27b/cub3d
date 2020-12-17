@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 11:17:21 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/16 17:37:28 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/17 18:07:30 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	redirect(t_uint8 *flag, t_uint8 bit, t_map *map, char *line)
 
 	if (*flag & bit)
 		err_exit(ERRTYPE_BADMAP);
-	*flag |= bit;
+	*flag = *flag | bit;
 	i = 0;
 	while (i < 8)
 	{

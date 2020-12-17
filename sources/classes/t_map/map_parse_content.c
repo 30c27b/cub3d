@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 14:03:14 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/16 16:04:49 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/17 16:09:31 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ static void		map_size(t_map *map, t_list *list)
 
 static void		parse_content_line(t_map *map, char *line, size_t index)
 {
-	size_t	i;
-	size_t	len;
+	size_t		i;
+	size_t		len;
+	t_list		*el;
 
 	i = 0;
 	len = ft_strlen(line);
@@ -42,8 +43,15 @@ static void		parse_content_line(t_map *map, char *line, size_t index)
 	ft_memset(map->content[index], -1, map->width);
 	while (line[i])
 	{
-		if (line[i] >= '0' && line[i] <= '2')
+		if (line[i] >= '0' && line[i] <= '1')
 			map->content[index][i] = line[i] - 48;
+		else if (line[i] == '2')
+		{
+			if (!(el = ft_lstnew(sprite_init(vect_init(i, index)))))
+				err_exit(ERRTYPE_NOMEM);
+			ft_lstadd_back(&map->sprites, el);
+			map->content[index][i] = 0;
+		}
 		else if (line[i] == 'N' || line[i] == 'E' ||
 		line[i] == 'S' || line[i] == 'W')
 		{
@@ -83,4 +91,5 @@ void			map_parse_content(t_map *map, t_list *list)
 	}
 	if (!map->direction)
 		err_exit(ERRTYPE_BADMAP);
+	map->s_len = ft_lstsize(map->sprites);
 }

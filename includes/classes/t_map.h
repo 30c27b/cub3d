@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/14 15:55:24 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/17 16:08:53 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct	s_map
 	t_uint64	height;
 	t_uint64	width;
 	t_int8		**content;
+	t_list		*sprites;
+	int			s_len;
 	char		direction;
 	int			pos_x;
 	int			pos_y;

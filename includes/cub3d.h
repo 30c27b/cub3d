@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:46:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/16 16:46:01 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/17 15:58:13 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@
 # include "classes/t_fvect.h"
 # include "classes/t_vect.h"
 # include "classes/t_texture.h"
+# include "classes/t_sprite.h"
 # include "classes/t_file.h"
 # include "classes/t_map.h"
 # include "classes/t_view.h"
