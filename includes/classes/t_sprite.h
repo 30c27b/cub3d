@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 15:41:49 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/17 15:58:26 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/20 20:30:01 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ typedef struct	s_sprite
 */
 
 t_sprite		*sprite_init(t_vect pos);
-void			sprite_free(t_sprite *sprite);
+void			sprite_free(void *param);
 
 #endif

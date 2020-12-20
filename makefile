@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2020/12/16 15:15:40 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/12/20 20:27:13 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,9 +53,6 @@ CL_GREEN	= \033[38;2;0;153;0m
 
 CL_RESET	= \033[0m
 
-.c.o:
-			@${CC} ${CFLAGS} -c $^ -o $@
-
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
@@ -91,6 +88,12 @@ fclean:		clean
 
 re:			fclean all
 
-mclean:		all clean
+norm:
+			if ! command -v COMMAND &> /dev/null
+			then
+				echo "COMMAND could not be found"
+				exit
+			fi
+
 
 .PHONY:		all clean fclean re

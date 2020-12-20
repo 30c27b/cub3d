@@ -30,5 +30,6 @@ int			main(int argc, char **argv)
 
 	game = game_init(argc, argv);
 	game_start(game);
+	game_free(game);
 	exit(EXIT_SUCCESS);
 }

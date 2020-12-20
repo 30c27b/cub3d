@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_free.c                                      :+:      :+:    :+:   */
+/*   bmp_write.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/17 15:58:56 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/20 20:28:31 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/12/19 12:58:34 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/12/19 12:59:33 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BMP_WRITE_H
+# define BMP_WRITE_H
+
 #include "cub3d.h"
 
-void		sprite_free(void *param)
-{
-	t_sprite	*sprite;
+void		bmp_write(t_game *game);
 
-	sprite = (t_sprite *)param;
-	free(sprite);
-}
+#endif

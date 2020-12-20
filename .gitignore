@@ -1,4 +1,6 @@
 Cub3D
+compile_commands.json
+.cache
 **.DS_store
 **.vscode
 **~

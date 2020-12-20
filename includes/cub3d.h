@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:46:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/17 15:58:13 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/19 11:07:25 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@
 */
 
 # define C3D_TITLE "Cub3D"
+# define SAVE_FILE "screenshot.bmp"
 # define FOV 0.66
 # define MOVE_SPEED 0.1
 # define ROT_SPEED 0.05

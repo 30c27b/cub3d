@@ -32,5 +32,6 @@ typedef struct	s_game
 
 t_game			*game_init(int ac, char **av);
 void			game_start(t_game *game);
+void			game_free(t_game *game);
 
 #endif
