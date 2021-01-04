@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 11:38:45 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/19 10:51:27 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/20 21:11:03 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ void		map_free(t_map *map)
 
 	i = 0;
 	while (i < map->height)
-	{
-		free(map->content[i]);
-		i++;
-	}
+		free(map->content[i++]);
 	ft_lstclear(&map->sprites, &sprite_free);
 	free(map->content);
 	free(map->tx_no);

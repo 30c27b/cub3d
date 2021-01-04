@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   beta_frame_loop.c                                  :+:      :+:    :+:   */
+/*   frame_draw.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/08 14:54:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/17 17:42:51 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/12/20 21:11:28 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/12/20 21:40:35 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int			cmp_sprites(void *spr1, void* spr2, void *data)
+static int	cmp_sprites(void *spr1, void* spr2, void *data)
 {
 	t_sprite	*s1;
 	t_sprite	*s2;
@@ -23,23 +23,21 @@ static int			cmp_sprites(void *spr1, void* spr2, void *data)
 	s1 = (t_sprite *)spr1;
 	s2 = (t_sprite *)spr2;
 	game = (t_game *)data;
-	dst1 = ((game->view->pos.x - s1->pos.x) * (game->view->pos.x - s1->pos.x) + (game->view->pos.y - s1->pos.y) * (game->view->pos.y - s1->pos.y));
-	dst2 = ((game->view->pos.x - s2->pos.x) * (game->view->pos.x - s2->pos.x) + (game->view->pos.y - s2->pos.y) * (game->view->pos.y - s2->pos.y));
+	dst1 = ((game->view->pos.x - s1->pos.x) * (game->view->pos.x - s1->pos.x) +
+	(game->view->pos.y - s1->pos.y) * (game->view->pos.y - s1->pos.y));
+	dst2 = ((game->view->pos.x - s2->pos.x) * (game->view->pos.x - s2->pos.x) +
+	(game->view->pos.y - s2->pos.y) * (game->view->pos.y - s2->pos.y));
 	return (dst1 < dst2);
 }
 
-void beta_frame_loop(t_game *game)
+void		frame_draw(t_frame *frame)
 {
-	int screen_x;
-	t_frame *frame;
+	int		screen_x;
+	t_game	*game;
 	t_ray	*ray;
-	double	*z_buffer;
 
 	screen_x = 0;
-	frame = frame_init(game);
-	if (!(z_buffer = ft_calloc(game->map->res_x, sizeof(double))))
-		err_exit(ERRTYPE_NOMEM);
-
+	game = frame->game;
 	while (screen_x < game->map->res_x)
 	{
 		ray = ray_init(frame, screen_x);
@@ -101,11 +99,11 @@ void beta_frame_loop(t_game *game)
 		ray->wall_x -= floor((ray->wall_x));
 
 		//x coordinate on the texture
-		int texX = (int)(ray->wall_x * (double)TEX_WIDTH);
+		int tex_x = (int)(ray->wall_x * (double)TEX_WIDTH);
 		if(ray->wall_side < 2 && ray->dir.x > 0)
-			texX = TEX_WIDTH - texX - 1;
+			tex_x = TEX_WIDTH - tex_x - 1;
 		if(ray->wall_side >= 2 && ray->dir.y < 0)
-			texX = TEX_WIDTH - texX - 1;
+			tex_x = TEX_WIDTH - tex_x - 1;
 		
 		// How much to increase the texture coordinate per screen pixel
 		double step = 1.0 * TEX_HEIGHT / lineHeight;
@@ -118,16 +116,16 @@ void beta_frame_loop(t_game *game)
 				frame_put_pixel(frame, vect_init(screen_x, screen_y), game->map->cl_ceiling);
 			else if (screen_y >= drawStart && screen_y <= drawEnd)
 			{
-				int texY = (int)texPos & (TEX_HEIGHT - 1);
+				int tex_y = (int)texPos & (TEX_HEIGHT - 1);
 				texPos += step;
-				t_rgb color = texture_get_pixel(ray->wall_tex, vect_init(texX, texY));
+				t_rgb color = texture_get_pixel(ray->wall_tex, vect_init(tex_x, tex_y));
 				frame_put_pixel(frame, vect_init(screen_x, screen_y), color);
 			}
 			else
 				frame_put_pixel(frame, vect_init(screen_x, screen_y), game->map->cl_floor);
 		}
 
-		z_buffer[screen_x] = ray->wall_dist; 
+		frame->z_buffer[screen_x] = ray->wall_dist; 
 		ray_free(ray);
 		screen_x++;
 	}
@@ -153,38 +151,35 @@ void beta_frame_loop(t_game *game)
 
 		int sprite_height = abs((int)(game->map->res_y / (transform_y)));
 
-		int drawStartY = -sprite_height / 2 + game->map->res_y / 2;
-		if(drawStartY < 0)
-			drawStartY = 0;
-		int drawEndY = sprite_height / 2 + game->map->res_y / 2;
-		if(drawEndY >= game->map->res_y)
-			drawEndY = game->map->res_y - 1;
+		int draw_start_y = -sprite_height / 2 + game->map->res_y / 2;
+		if(draw_start_y < 0)
+			draw_start_y = 0;
+		int draw_end_y = sprite_height / 2 + game->map->res_y / 2;
+		if(draw_end_y >= game->map->res_y)
+			draw_end_y = game->map->res_y - 1;
 
-		int spriteWidth = abs((int)(game->map->res_y / (transform_y)));
-		int drawStartX = -spriteWidth / 2 + sprite_screen_x;
-		if(drawStartX < 0)
-			drawStartX = 0;
-		int drawEndX = spriteWidth / 2 + sprite_screen_x;
-		if(drawEndX >= game->map->res_x)
-			drawEndX = game->map->res_x - 1;
+		int sprite_width = abs((int)(game->map->res_y / (transform_y)));
+		int draw_start_x = -sprite_width / 2 + sprite_screen_x;
+		if(draw_start_x < 0)
+			draw_start_x = 0;
+		int draw_end_x = sprite_width / 2 + sprite_screen_x;
+		if(draw_end_x >= game->map->res_x)
+			draw_end_x = game->map->res_x - 1;
 
-		for(int stripe = drawStartX; stripe < drawEndX; stripe++)
+		for(int stripe = draw_start_x; stripe < draw_end_x; stripe++)
 		{
-			int texX = (int)(256 * (stripe - (-spriteWidth / 2 + sprite_screen_x)) * TEX_WIDTH / spriteWidth) / 256;
+			int tex_x = (int)(256 * (stripe - (-sprite_width / 2 + sprite_screen_x)) * TEX_WIDTH / sprite_width) / 256;
 
-			if(transform_y > 0 && stripe > 0 && stripe < game->map->res_x && transform_y < z_buffer[stripe])
-			for(int y = drawStartY; y < drawEndY; y++) //for every pixel of the current stripe
+			if(transform_y > 0 && stripe > 0 && stripe < game->map->res_x && transform_y < frame->z_buffer[stripe])
+			for(int y = draw_start_y; y < draw_end_y; y++) //for every pixel of the current stripe
 			{
 				int d = (y) * 256 - game->map->res_y * 128 + sprite_height * 128; //256 and 128 factors to avoid floats
-				int texY = ((d * TEX_HEIGHT) / sprite_height) / 256;
-				t_rgb color = texture_get_pixel(game->map->tx_s, vect_init(texX, texY));
+				int tex_y = ((d * TEX_HEIGHT) / sprite_height) / 256;
+				t_rgb color = texture_get_pixel(game->map->tx_s, vect_init(tex_x, tex_y));
 				if ((rgb_to_int(color) & 0x00FFFFFF) != 0)
 					frame_put_pixel(frame, vect_init(stripe, y), color);
 		  }
 		}
 		el = el->next;
 	}
-	
-	frame_push(frame);
-	frame_free(frame);
 }

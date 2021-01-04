@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 10:35:53 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/17 16:49:58 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/25 17:18:04 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,6 @@
 # define BIT_5 32
 # define BIT_6 64
 # define BIT_7 128
-
-typedef signed char		t_int8;
-typedef unsigned char	t_uint8;
-typedef signed short	t_int16;
-typedef unsigned short	t_uint16;
-typedef signed int		t_int32;
-typedef unsigned int	t_uint32;
-typedef signed long		t_int64;
-typedef unsigned long	t_uint64;
 
 # define BUFFER_SIZE 32
 

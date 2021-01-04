@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:46:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/19 11:07:25 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/20 21:41:09 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@
 */
 
 # include "handlers/err_exit.h"
-# include "handlers/frame_loop.h"
 # include "handlers/hooks.h"
 
 /*

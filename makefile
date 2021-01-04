@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2020/12/20 20:27:13 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/12/22 20:59:48 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ CC			= gcc
 RM			= rm -f
 
 MAKE		= make -j$(nproc)
+
+NORMINETTE	= norminette
 
 LFTDIR		= ./libraries/libft
 
@@ -89,11 +91,8 @@ fclean:		clean
 re:			fclean all
 
 norm:
-			if ! command -v COMMAND &> /dev/null
-			then
-				echo "COMMAND could not be found"
-				exit
-			fi
-
+			@echo "$(CL_GREY)"
+			@$(NORMINETTE) $(SRCS)
+			@echo "$(CL_RESET)"
 
 .PHONY:		all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 11:17:21 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/17 18:07:30 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/25 17:21:37 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_map_meta	g_meta_identifiers[8] = {
 	{BIT_7, &map_meta_c},
 };
 
-static void	redirect(t_uint8 *flag, t_uint8 bit, t_map *map, char *line)
+static void	redirect(uint8_t *flag, uint8_t bit, t_map *map, char *line)
 {
 	size_t	i;
 
@@ -43,7 +43,7 @@ static void	redirect(t_uint8 *flag, t_uint8 bit, t_map *map, char *line)
 	err_exit(ERRTYPE_BADMAP);
 }
 
-static void	parse_meta_line(t_map *map, char *line, t_uint8 *flag)
+static void	parse_meta_line(t_map *map, char *line, uint8_t *flag)
 {
 	if (ft_strlen(line) < 2)
 		err_exit(ERRTYPE_BADMAP);
@@ -69,7 +69,7 @@ static void	parse_meta_line(t_map *map, char *line, t_uint8 *flag)
 
 t_list		*map_parse_meta(t_map *map, t_list *list)
 {
-	t_uint8	flag;
+	uint8_t	flag;
 	t_list	*el;
 	t_bool	end;
 

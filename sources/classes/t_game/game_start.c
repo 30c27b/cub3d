@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 14:35:34 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/19 12:58:12 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/20 21:43:23 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 void		game_start(t_game *game)
 {
-	if (game->map->save)
+	t_frame	*frame;
+
+	if (game->map->save == TRUE)
 	{
-		
+		frame = frame_init(game);
+		frame_draw(frame);
+		frame_save(frame);
+		frame_free(frame);
 	}
 	else
 	{

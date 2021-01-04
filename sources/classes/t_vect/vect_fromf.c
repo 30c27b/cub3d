@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 12:06:48 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/30 12:50:14 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/25 17:23:32 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_vect			vect_fromf(t_fvect fvect)
 {
 	t_vect	vect;
 
-	vect.x = (t_int64)fvect.x;
-	vect.y = (t_int64)fvect.y;
+	vect.x = (int64_t)fvect.x;
+	vect.y = (int64_t)fvect.y;
 	return (vect);
 }

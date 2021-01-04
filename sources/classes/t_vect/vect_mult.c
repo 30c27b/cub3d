@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 12:59:26 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/29 15:21:11 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/25 17:24:13 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_vect		vect_mult(t_vect v, t_int64 n)
+t_vect		vect_mult(t_vect v, int64_t n)
 {
 	t_vect	vect;
 

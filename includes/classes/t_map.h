@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/17 16:08:53 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/25 17:17:48 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ typedef struct	s_map
 	t_texture	*tx_s;
 	t_rgb		cl_floor;
 	t_rgb		cl_ceiling;
-	t_uint64	height;
-	t_uint64	width;
-	t_int8		**content;
+	uint64_t	height;
+	uint64_t	width;
+	int8_t		**content;
 	t_list		*sprites;
 	int			s_len;
 	char		direction;
@@ -43,7 +43,7 @@ typedef struct	s_map
 
 typedef struct	s_map_meta
 {
-	t_uint8		identifier;
+	uint8_t		identifier;
 	void		(*parser)(t_map*, char*);
 }				t_map_meta;
 

@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 12:21:25 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/29 15:21:04 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/12/25 17:23:57 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_vect		vect_init(t_int64 x, t_int64 y)
+t_vect		vect_init(int64_t x, int64_t y)
 {
 	t_vect	vect;
 
