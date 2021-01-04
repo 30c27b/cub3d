@@ -6,26 +6,29 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 21:21:46 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/20 22:00:34 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/04 16:37:32 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	bmp_header(t_frame *frame, int filesize)
+static void	bmp_header(t_frame *frame, int imgsize)
 {
 	extern int	g_bmp_fd;
 	uint8_t		header[54];
+	int			filesize;
 
+	filesize = imgsize + 54;
 	ft_bzero(header, 54);
 	ft_memcpy(header, "BM", 2);
-	ft_memcpy(header + 2, &filesize, 4);
-	header[10] = (unsigned char)(54);
-	header[14] = (unsigned char)(40);
+	ft_memcpy(header + 2, &imgsize, 4);
+	ft_memcpy(header + 10, &(int){54}, 4);
+	ft_memcpy(header + 14, &(int){40}, 4);
 	ft_memcpy(header + 18, &frame->game->map->res_x, 4);
 	ft_memcpy(header + 22, &frame->game->map->res_y, 4);
-	header[27] = (unsigned char)(1);
-	header[28] = (unsigned char)(24);
+	ft_memcpy(header + 26, &(int){1}, 2);
+	ft_memcpy(header + 28, &(int){32}, 2);
+	ft_memcpy(header + 34, &filesize, 4);
 	if ((write(g_bmp_fd, header, 54)) < 54)
 		err_exit(ERRTYPE_BMP);
 }
@@ -33,16 +36,13 @@ static void	bmp_header(t_frame *frame, int filesize)
 void		frame_save(t_frame *frame)
 {
 	extern int	g_bmp_fd;
-	int			pad;
-	int			filesize;
+	int			imgsize;
 
-	pad = (4 - (frame->game->map->res_x * 3) % 4) % 4;
-	filesize = 54 + (3 * (frame->game->map->res_x + pad) * frame->game->map->res_y);
-	if ((g_bmp_fd = open(SAVE_FILE, O_WRONLY | O_CREAT | O_TRUNC |
-	O_APPEND)) < 0)
+	imgsize = frame->game->map->res_y * frame->game->map->res_x * 4;
+	if ((g_bmp_fd = open(SAVE_FILE, O_WRONLY | O_TRUNC | O_APPEND, S_IRWXU)) < 0)
 		err_exit(ERRTYPE_BMP);
-	bmp_header(frame, filesize);
-	if ((write(g_bmp_fd, frame->addr, filesize) < 0))
+	bmp_header(frame, imgsize);
+	if ((write(g_bmp_fd, frame->addr, imgsize) < 0))
 		err_exit(ERRTYPE_BMP);
 	close(g_bmp_fd);
 	g_bmp_fd = -1;
