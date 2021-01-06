@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 12:29:12 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/16 16:02:14 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/06 17:57:58 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ static void	parse_direction(t_view *view, t_map *map)
 {
 	if (map->direction == 'N')
 	{
-		view->dir= fvect_init(0, -1);
+		view->dir = fvect_init(0, -1);
 		view->fov = fvect_init(FOV, 0);
 	}
 	else if (map->direction == 'S')
 	{
-		view->dir= fvect_init(0, 1);
+		view->dir = fvect_init(0, 1);
 		view->fov = fvect_init(-FOV, 0);
 	}
 	else if (map->direction == 'E')
 	{
-		view->dir= fvect_init(1, 0);
+		view->dir = fvect_init(1, 0);
 		view->fov = fvect_init(0, FOV);
 	}
 	else if (map->direction == 'W')
 	{
-		view->dir= fvect_init(-1, 0);
+		view->dir = fvect_init(-1, 0);
 		view->fov = fvect_init(0, -FOV);
 	}
 	else

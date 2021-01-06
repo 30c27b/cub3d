@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 14:35:34 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/04 17:17:37 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/06 17:55:01 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ void		game_start(t_game *game)
 	else
 	{
 		mlx_loop_hook(game->display->mlx_ptr, &hook_loop, (void *)game);
-		mlx_hook(game->display->win_ptr, XEVENT_KEYPRESS, 0, &hook_keypress, (void *)game);
-		mlx_hook(game->display->win_ptr, XEVENT_KEYRELEASE, 0, &hook_keyrelease, (void *)game);
-		mlx_hook(game->display->win_ptr, XEVENT_EXIT, 0, &hook_exit, (void *)game);
+		mlx_hook(game->display->win_ptr, XEVENT_KEYPRESS, 0,
+		&hook_keypress, (void *)game);
+		mlx_hook(game->display->win_ptr, XEVENT_KEYRELEASE, 0,
+		&hook_keyrelease, (void *)game);
+		mlx_hook(game->display->win_ptr, XEVENT_EXIT, 0,
+		&hook_exit, (void *)game);
 		mlx_loop(game->display->mlx_ptr);
 	}
 }

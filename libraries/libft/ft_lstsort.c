@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 15:14:12 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/17 16:06:21 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/06 18:01:12 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static void	swap(t_list *el1, t_list *el2)
 	el2->content = tmp;
 }
 
-void		ft_lstsort(t_list **lst, int (*f)(void *, void *, void *), void *data)
+void		ft_lstsort(t_list **lst, int (*f)(void *, void *, void *),
+void *data)
 {
 	int		swapped;
 	t_list	*el;

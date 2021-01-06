@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 16:38:26 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/10 15:52:33 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/06 17:46:31 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		texture_process(t_texture *texture, void *mlx_ptr)
 		err_exit(ERRTYPE_BADTEX);
 	if (texture->width != TEX_WIDTH || texture->height != TEX_HEIGHT)
 		err_exit(ERRTYPE_BADTEX);
-	if (!(texture->addr = mlx_get_data_addr(texture->img, &texture->bpp, &texture->line_len,
-	&texture->endian)))
-	err_exit(ERRTYPE_MLX);
+	if (!(texture->addr = mlx_get_data_addr(texture->img, &texture->bpp,
+	&texture->line_len, &texture->endian)))
+		err_exit(ERRTYPE_MLX);
 }

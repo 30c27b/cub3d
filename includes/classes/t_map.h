@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 11:07:52 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/25 17:17:48 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/06 17:49:18 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ t_map			*map_init(int ac, char **av);
 void			map_process_tex(t_map *map, void *mlx_ptr);
 t_bool			map_isfloor(t_map *map, t_fvect v);
 void			map_free(t_map *map);
-
-void		map_print(t_map *map);
 
 /*
 ** Private methods ********************************************************** **

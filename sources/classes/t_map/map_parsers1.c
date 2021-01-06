@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 12:24:38 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/09 17:51:55 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/06 17:48:58 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void		map_meta_no(t_map *map, char *line)
 		i++;
 	if (i != 2)
 		err_exit(ERRTYPE_BADMAP);
-	
 	if (!(path = ft_strdup(strs[1])))
 		err_exit(ERRTYPE_NOMEM);
 	map->tx_no = texture_init(path);

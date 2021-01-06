@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 18:18:31 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/11 11:28:27 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/06 17:48:10 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ static void	initial_calc(t_ray *ray, t_game *game)
 	}
 }
 
-t_ray*		ray_init(t_frame* frame, int screen_x)
+t_ray		*ray_init(t_frame *frame, int screen_x)
 {
-	t_ray*	ray;
+	t_ray	*ray;
 
 	if (!(ray = ft_calloc(1, sizeof(t_ray))))
 		err_exit(ERRTYPE_NOMEM);
