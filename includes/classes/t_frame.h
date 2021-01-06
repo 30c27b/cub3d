@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 14:22:24 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/20 21:29:51 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/06 15:59:22 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 
 typedef struct	s_frame
 {
-	t_game	*game;
-	void	*img;
-	void	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-	double	*z_buffer;
+	t_game		*game;
+	void		*img;
+	uint32_t	*addr;
+	int			bpp;
+	int			line_len;
+	int			endian;
+	double		*z_buffer;
 }				t_frame;
 
 /*
