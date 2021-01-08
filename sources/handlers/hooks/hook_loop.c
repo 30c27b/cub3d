@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 14:57:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/20 21:14:09 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/08 17:25:15 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int			hook_loop(void *param)
 	direction_left(game);
 	movement(game);
 	frame = frame_init(game);
-	frame_draw(frame);
+	frame_render(frame);
 	frame_push(frame);
 	frame_free(frame);
 	return (0);

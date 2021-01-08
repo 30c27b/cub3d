@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 21:21:46 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/06 17:44:46 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/08 17:15:53 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,21 @@ static void	bmp_data(t_frame *frame)
 	extern int	g_bmp_fd;
 	int			i;
 	int			j;
-	uint8_t		buffer[4];
+	uint32_t	pxl;
 
-	i = frame->game->map->res_x * (frame->game->map->res_y - 1);
+
+	i = frame->game->map->res_y - 1;
 	while (i >= 0)
 	{
 		j = 0;
 		while (j < frame->game->map->res_x)
 		{
-			buffer[0] = (uint8_t)(frame->addr[i] % 256);
-			buffer[1] = (uint8_t)(frame->addr[i] / 256 % 256);
-			buffer[2] = (uint8_t)(frame->addr[i] / 256 / 256 % 256);
-			buffer[3] = (uint8_t)(0);
-			write(g_bmp_fd, buffer, 4);
-			i++;
+			pxl = *(frame->addr + ((i * frame->line_len + j * (frame->bpp / 8)) / 4));
+			if ((write(g_bmp_fd, &pxl, 4)) != 4)
+				err_exit(ERRTYPE_BMP);
 			j++;
 		}
-		i -= 2 * frame->game->map->res_x;
+		i--;
 	}
 }
 
@@ -54,7 +52,7 @@ static void	bmp_header(t_frame *frame, int imgsize)
 	ft_memcpy(header + 26, &(int){1}, 2);
 	ft_memcpy(header + 28, &(int){32}, 2);
 	ft_memcpy(header + 34, &imgsize, 4);
-	if ((write(g_bmp_fd, header, 54)) < 54)
+	if ((write(g_bmp_fd, header, 54)) != 54)
 		err_exit(ERRTYPE_BMP);
 }
 

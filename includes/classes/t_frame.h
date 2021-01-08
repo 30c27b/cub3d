@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 14:22:24 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/06 15:59:22 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/08 17:24:08 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct	s_frame
 
 t_frame			*frame_init(t_game *game);
 void			frame_put_pixel(t_frame *frame, t_vect pos, t_rgb color);
-void			frame_draw(t_frame *frame);
+void			frame_render(t_frame *frame);
 void			frame_push(t_frame *frame);
 void			frame_save(t_frame *frame);
 void			frame_free(t_frame *frame);

@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2021/01/06 18:07:21 by ancoulon         ###   ########.fr        #
+#    Updated: 2021/01/08 16:48:56 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,69 +36,17 @@ MLXDIR		= ./libraries/mlx
 
 MLX			= libmlx.dylib
 
-CFLAGS		= -Wall -Wextra -Werror -I. -I./includes #-g -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -I. -I./includes
 
-LIBS		= -lmlx -L$(LFTDIR) -lft -framework OpenGL             \
-			  -framework AppKit -lm libmlx.dylib
+LIBS		= -L$(LFTDIR) -lft -L. -lmlx -framework OpenGL \
+			  -framework AppKit -lm
 
 SRCDIR		= ./sources
 
-SRCS		=	sources/classes/t_display/display_free.c \
-				sources/classes/t_display/display_init.c \
-				sources/classes/t_file/file_free.c \
-				sources/classes/t_file/file_init.c \
-				sources/classes/t_file/file_print.c \
-				sources/classes/t_frame/frame_draw.c \
-				sources/classes/t_frame/frame_free.c \
-				sources/classes/t_frame/frame_init.c \
-				sources/classes/t_frame/frame_push.c \
-				sources/classes/t_frame/frame_put_pixel.c \
-				sources/classes/t_frame/frame_save.c \
-				sources/classes/t_fvect/fvect_add.c \
-				sources/classes/t_fvect/fvect_addv.c \
-				sources/classes/t_fvect/fvect_addx.c \
-				sources/classes/t_fvect/fvect_addy.c \
-				sources/classes/t_fvect/fvect_init.c \
-				sources/classes/t_fvect/fvect_mult.c \
-				sources/classes/t_fvect/fvect_multv.c \
-				sources/classes/t_game/game_free.c \
-				sources/classes/t_game/game_init.c \
-				sources/classes/t_game/game_start.c \
-				sources/classes/t_map/map_enclosing.c \
-				sources/classes/t_map/map_free.c \
-				sources/classes/t_map/map_init.c \
-				sources/classes/t_map/map_isfloor.c \
-				sources/classes/t_map/map_parse_content.c \
-				sources/classes/t_map/map_parse_meta.c \
-				sources/classes/t_map/map_parsers1.c \
-				sources/classes/t_map/map_parsers2.c \
-				sources/classes/t_map/map_process_tex.c \
-				sources/classes/t_ray/ray_free.c \
-				sources/classes/t_ray/ray_init.c \
-				sources/classes/t_rgb/rgb_from_int.c \
-				sources/classes/t_rgb/rgb_init.c \
-				sources/classes/t_rgb/rgb_print.c \
-				sources/classes/t_rgb/rgb_to_int.c \
-				sources/classes/t_sprite/sprite_free.c \
-				sources/classes/t_sprite/sprite_init.c \
-				sources/classes/t_texture/texture_free.c \
-				sources/classes/t_texture/texture_get_pixel.c \
-				sources/classes/t_texture/texture_init.c \
-				sources/classes/t_texture/texture_process.c \
-				sources/classes/t_vect/vect_add.c \
-				sources/classes/t_vect/vect_addv.c \
-				sources/classes/t_vect/vect_fromf.c \
-				sources/classes/t_vect/vect_init.c \
-				sources/classes/t_vect/vect_mult.c \
-				sources/classes/t_vect/vect_multv.c \
-				sources/classes/t_view/view_free.c \
-				sources/classes/t_view/view_init.c \
-				sources/handlers/err_exit.c \
-				sources/handlers/hooks/hook_exit.c \
-				sources/handlers/hooks/hook_keypress.c \
-				sources/handlers/hooks/hook_keyrelease.c \
-				sources/handlers/hooks/hook_loop.c \
-				sources/main.c
+SRCS		= $(wildcard sources/*.c) \
+			  $(wildcard sources/*/*.c) \
+			  $(wildcard sources/*/*/*.c)
+
 
 OBJS		= $(SRCS:.c=.o)
 
