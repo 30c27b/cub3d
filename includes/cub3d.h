@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:46:32 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/20 21:41:09 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/11 17:21:10 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
-# include <stdio.h>
-# include <errno.h>
-# include <string.h>
 
 /*
 ** External libraries ******************************************************* **
