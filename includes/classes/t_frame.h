@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 14:22:24 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/11 12:22:11 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/11 17:07:31 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ typedef struct	s_frame_sp
 	int			d;
 	int			tex_y;
 	t_rgb		color;
-
-
 }				t_frame_sp;
 
 /*
@@ -67,6 +65,6 @@ void			frame_push(t_frame *frame);
 void			frame_save(t_frame *frame);
 void			frame_free(t_frame *frame);
 
-void 			frame_draw_sprites(t_frame *frame);
+void			frame_draw_sprites(t_frame *frame);
 
 #endif
