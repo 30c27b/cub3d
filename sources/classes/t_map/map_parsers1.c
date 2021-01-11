@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 12:24:38 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/06 17:48:58 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/11 15:04:17 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,24 @@ void		map_meta_we(t_map *map, char *line)
 	if (!(path = ft_strdup(strs[1])))
 		err_exit(ERRTYPE_NOMEM);
 	map->tx_we = texture_init(path);
+	ft_splitfree(strs);
+}
+
+void		map_meta_ea(t_map *map, char *line)
+{
+	size_t	i;
+	char	*path;
+	char	**strs;
+
+	if (!(strs = ft_split(line, ' ')))
+		err_exit(ERRTYPE_NOMEM);
+	i = 0;
+	while (strs[i])
+		i++;
+	if (i != 2)
+		err_exit(ERRTYPE_BADMAP);
+	if (!(path = ft_strdup(strs[1])))
+		err_exit(ERRTYPE_NOMEM);
+	map->tx_ea = texture_init(path);
 	ft_splitfree(strs);
 }

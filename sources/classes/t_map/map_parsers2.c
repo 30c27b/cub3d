@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 13:22:39 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/09 17:51:34 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/11 15:38:40 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,23 @@
 static char	is_digit(unsigned int i, char c)
 {
 	(void)i;
-	if (!ft_isdigit(c) && c != ' ')
-		err_exit(ERRTYPE_BADMAP);
+	if (!ft_isdigit(c))
+		err_exit(ERRTYPE_NOMAP);
 	return (c);
 }
 
-void		map_meta_ea(t_map *map, char *line)
+static void	check_color(char *s)
 {
-	size_t	i;
-	char	*path;
-	char	**strs;
+	char	*str;
 
-	if (!(strs = ft_split(line, ' ')))
+	if (!(str = ft_strtrim(s, " ")))
 		err_exit(ERRTYPE_NOMEM);
-	i = 0;
-	while (strs[i])
-		i++;
-	if (i != 2)
+	if (!ft_strlen(str))
 		err_exit(ERRTYPE_BADMAP);
-	if (!(path = ft_strdup(strs[1])))
-		err_exit(ERRTYPE_NOMEM);
-	map->tx_ea = texture_init(path);
-	ft_splitfree(strs);
+	ft_strmapi(str, &is_digit);
+	if (ft_atoi(str) < 0 || ft_atoi(str) > 255)
+		err_exit(ERRTYPE_BADMAP);
+	free(str);
 }
 
 void		map_meta_s(t_map *map, char *line)
@@ -68,6 +63,7 @@ void		map_meta_f(t_map *map, char *line)
 		err_exit(ERRTYPE_NOMEM);
 	if (!(strs = ft_split(str, ',')))
 		err_exit(ERRTYPE_NOMEM);
+	free(str);
 	i = 0;
 	while (strs[i])
 		i++;
@@ -75,11 +71,10 @@ void		map_meta_f(t_map *map, char *line)
 		err_exit(ERRTYPE_BADMAP);
 	i = 0;
 	while (i < 3)
-		ft_strmapi(strs[i++], &is_digit);
+		check_color(strs[i++]);
 	map->cl_floor = rgb_init(ft_atoi(strs[0]), ft_atoi(strs[1]),
 	ft_atoi(strs[2]));
 	ft_splitfree(strs);
-	free(str);
 }
 
 void		map_meta_c(t_map *map, char *line)
@@ -92,6 +87,7 @@ void		map_meta_c(t_map *map, char *line)
 		err_exit(ERRTYPE_NOMEM);
 	if (!(strs = ft_split(str, ',')))
 		err_exit(ERRTYPE_NOMEM);
+	free(str);
 	i = 0;
 	while (strs[i])
 		i++;
@@ -99,9 +95,8 @@ void		map_meta_c(t_map *map, char *line)
 		err_exit(ERRTYPE_BADMAP);
 	i = 0;
 	while (i < 3)
-		ft_strmapi(strs[i++], &is_digit);
+		check_color(strs[i++]);
 	map->cl_ceiling = rgb_init(ft_atoi(strs[0]), ft_atoi(strs[1]),
 	ft_atoi(strs[2]));
 	ft_splitfree(strs);
-	free(str);
 }

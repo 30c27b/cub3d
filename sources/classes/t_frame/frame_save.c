@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 21:21:46 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/08 17:15:53 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/11 15:48:05 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ static void	bmp_data(t_frame *frame)
 	int			j;
 	uint32_t	pxl;
 
-
 	i = frame->game->map->res_y - 1;
 	while (i >= 0)
 	{
 		j = 0;
 		while (j < frame->game->map->res_x)
 		{
-			pxl = *(frame->addr + ((i * frame->line_len + j * (frame->bpp / 8)) / 4));
+			pxl = *(frame->addr + ((i * frame->line_len + j *
+			(frame->bpp / 8)) / 4));
 			if ((write(g_bmp_fd, &pxl, 4)) != 4)
 				err_exit(ERRTYPE_BMP);
 			j++;

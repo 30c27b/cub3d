@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 14:57:55 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/06 16:13:57 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/11 12:47:51 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ t_frame		*frame_init(t_game *game)
 		err_exit(ERRTYPE_MLX);
 	if (!(frame->z_buffer = ft_calloc(game->map->res_x, sizeof(double))))
 		err_exit(ERRTYPE_NOMEM);
-	printf("bpp: %d\n", frame->bpp);
 	return (frame);
 }

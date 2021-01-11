@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2021/01/08 16:48:56 by ancoulon         ###   ########.fr        #
+#    Updated: 2021/01/11 11:45:00 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ CC			= gcc
 
 RM			= rm -f
 
-MAKE		= make -j$(nproc)
+MAKE		= make
 
 NORMINETTE	= norminette
 
@@ -38,8 +38,8 @@ MLX			= libmlx.dylib
 
 CFLAGS		= -Wall -Wextra -Werror -I. -I./includes
 
-LIBS		= -L$(LFTDIR) -lft -L. -lmlx -framework OpenGL \
-			  -framework AppKit -lm
+LIBS		= -lm -L$(LFTDIR) -lft -L. -lmlx \
+			  -framework AppKit -framework OpenGL
 
 SRCDIR		= ./sources
 
