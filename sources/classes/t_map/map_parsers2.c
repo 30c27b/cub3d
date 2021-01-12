@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 13:22:39 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/11 15:38:40 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/12 10:38:14 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static char	is_digit(unsigned int i, char c)
 {
 	(void)i;
 	if (!ft_isdigit(c))
-		err_exit(ERRTYPE_NOMAP);
+		err_exit(ERRTYPE_BADMAP);
 	return (c);
 }
 
@@ -29,6 +29,8 @@ static void	check_color(char *s)
 	if (!ft_strlen(str))
 		err_exit(ERRTYPE_BADMAP);
 	ft_strmapi(str, &is_digit);
+	if (ft_strlen(str) > 3)
+		err_exit(ERRTYPE_BADMAP);
 	if (ft_atoi(str) < 0 || ft_atoi(str) > 255)
 		err_exit(ERRTYPE_BADMAP);
 	free(str);
