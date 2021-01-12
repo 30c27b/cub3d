@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 13:22:39 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/12 12:41:44 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/12 19:27:31 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static char	is_digit(unsigned int i, char c)
+char		parsing_is_digit(unsigned int i, char c)
 {
 	(void)i;
 	if (!ft_isdigit(c))
@@ -28,7 +28,7 @@ static void	check_color(char *s)
 		err_exit(ERRTYPE_NOMEM);
 	if (!ft_strlen(str))
 		err_exit(ERRTYPE_BADMAP);
-	free(ft_strmapi(str, &is_digit));
+	free(ft_strmapi(str, &parsing_is_digit));
 	if (ft_strlen(str) > 3)
 		err_exit(ERRTYPE_BADMAP);
 	if (ft_atoi(str) < 0 || ft_atoi(str) > 255)

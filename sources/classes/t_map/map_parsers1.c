@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 12:24:38 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/11 15:04:17 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/12 19:52:58 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,15 @@ void		map_meta_r(t_map *map, char *line)
 		i++;
 	if (i != 3)
 		err_exit(ERRTYPE_BADMAP);
-	if ((map->res_x = ft_atoi(strs[1])) <= 0)
-		err_exit(ERRTYPE_BADMAP);
-	if ((map->res_y = ft_atoi(strs[2])) <= 0)
-		err_exit(ERRTYPE_BADMAP);
+	i = 1;
+	while (i < 3)
+		free(ft_strmapi(strs[i++], &parsing_is_digit));
+	map->res_x = ft_atoi(strs[1]);
+	map->res_y = ft_atoi(strs[2]);
+	if (ft_strlen(strs[1]) > 6)
+		map->res_x = INT32_MAX;
+	if (ft_strlen(strs[2]) > 6)
+		map->res_y = INT32_MAX;
 	ft_splitfree(strs);
 }
 
