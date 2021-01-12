@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:56:02 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/11/23 20:49:49 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/12 10:46:40 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int			hook_keyrelease(int keycode, void *param)
 
 	view = ((t_game *)param)->view;
 	if (keycode == KEYCODE_ESC)
-	{
 		exit(EXIT_SUCCESS);
-	}
 	if (keycode == KEYCODE_RIGTARROW)
 		view->keyflag &= ~KEY_RIGTARROW;
 	if (keycode == KEYCODE_LEFTARROW)
