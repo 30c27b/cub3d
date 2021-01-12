@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2021/01/11 17:18:13 by ancoulon         ###   ########.fr        #
+#    Updated: 2021/01/12 13:12:10 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@
 
 NAME		= Cub3D
 
-CC			= gcc
+CC			= clang
 
 RM			= rm -f
 
