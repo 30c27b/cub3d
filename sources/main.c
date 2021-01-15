@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:03:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/12 20:00:57 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/15 13:10:49 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int			main(int argc, char **argv)
 {
 	t_game	*game;
 
-	void *a = malloc(150);
-	(void)a;
 	game = game_init(argc, argv);
 	game_start(game);
 	game_free(game);
