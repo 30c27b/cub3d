@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 22:33:53 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/09/28 11:56:55 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/15 15:15:48 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static t_bool	is_inside_map(t_map *map, size_t i, size_t j)
 
 static void		check_enclosing(t_map *map, size_t i, size_t j)
 {
-	if (!is_inside_map(map, i + 1, j) || map->content[i + 1][j] == ' ')
+	if (!is_inside_map(map, i + 1, j) || map->content[i + 1][j] < 0)
 		err_exit(ERRTYPE_BADMAP);
-	if (!is_inside_map(map, i - 1, j) || map->content[i - 1][j] == ' ')
+	if (!is_inside_map(map, i - 1, j) || map->content[i - 1][j] < 0)
 		err_exit(ERRTYPE_BADMAP);
-	if (!is_inside_map(map, i, j + 1) || map->content[i][j + 1] == ' ')
+	if (!is_inside_map(map, i, j + 1) || map->content[i][j + 1] < 0)
 		err_exit(ERRTYPE_BADMAP);
-	if (!is_inside_map(map, i, j - 1) || map->content[i][j - 1] == ' ')
+	if (!is_inside_map(map, i, j - 1) || map->content[i][j - 1] < 0)
 		err_exit(ERRTYPE_BADMAP);
 }
 

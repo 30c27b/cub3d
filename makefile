@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 08:24:04 by ancoulon          #+#    #+#              #
-#    Updated: 2021/01/12 20:03:11 by ancoulon         ###   ########.fr        #
+#    Updated: 2021/01/15 15:17:40 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,6 @@ SRCS		= \
 			sources/handlers/hooks/hook_keyrelease.c \
 			sources/handlers/hooks/hook_loop.c \
 			sources/main.c
-
 
 OBJS		= $(SRCS:.c=.o)
 
