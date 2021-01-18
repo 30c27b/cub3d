@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 14:03:14 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/06 17:53:33 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/18 13:46:59 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void		parse_content_el(t_map *map, char *line, size_t index, size_t i)
 		map->content[index][i] = line[i] - 48;
 	else if (line[i] == '2')
 	{
-		if (!(el = ft_lstnew(sprite_init(vect_init(i, index)))))
+		if (!(el = ft_lstnew(sprite_init(fvect_init(i + 0.5, index + 0.5)))))
 			err_exit(ERRTYPE_NOMEM);
 		ft_lstadd_back(&map->sprites, el);
 		map->content[index][i] = 0;

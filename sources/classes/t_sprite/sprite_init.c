@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 15:56:59 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/12/17 15:58:43 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/18 13:46:27 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_sprite		*sprite_init(t_vect pos)
+t_sprite		*sprite_init(t_fvect pos)
 {
 	t_sprite	*sprite;
 
