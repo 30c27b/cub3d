@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 09:03:11 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/15 15:16:52 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/18 16:21:54 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 */
 
 #include "cub3d.h"
-
-// TODO:  center sprites correctly
 
 int			main(int argc, char **argv)
 {
