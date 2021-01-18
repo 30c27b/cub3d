@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 14:03:14 by ancoulon          #+#    #+#             */
-/*   Updated: 2021/01/18 13:46:59 by ancoulon         ###   ########.fr       */
+/*   Updated: 2021/01/18 14:01:36 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,16 @@ static void		parse_content_line(t_map *map, char *line, size_t index)
 	}
 }
 
+void			map_check_end(t_list *el)
+{
+	while (el && el->content)
+	{
+		if (((char *)el->content)[0] != '\0')
+			err_exit(ERRTYPE_BADMAP);
+		el = el->next;
+	}
+}
+
 void			map_parse_content(t_map *map, t_list *list)
 {
 	t_list	*el;
@@ -95,6 +105,7 @@ void			map_parse_content(t_map *map, t_list *list)
 		el = el->next;
 		i++;
 	}
+	map_check_end(el);
 	if (!map->direction)
 		err_exit(ERRTYPE_BADMAP);
 	map->s_len = ft_lstsize(map->sprites);
